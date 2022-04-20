@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.*;
+
 /**
  *
  * @author Pablo
@@ -13,23 +15,26 @@ public class Prestamo {
     private int idTransaccion;
     private String rutCliente;
     private String rutTrabajador;
-    private int idPelicula;
+    private ArrayList<Integer> listIdPeliculas;//cambiar a oPelicula
     private String fechaPrestamo; //falta importar libreria para fechas
     private String fechaEntrega;
     private int montoAPagar;
-
+    
     public Prestamo() {
     }
 
-    public Prestamo(int idTransaccion, String rutCliente, String rutTrabajador, int idPelicula, String fechaPrestamo, String fechaEntrega, int montoAPagar) {
+    public Prestamo(int idTransaccion, String rutCliente, String rutTrabajador, ArrayList<Integer> listIdPeliculas, String fechaPrestamo, String fechaEntrega, int montoAPagar) {
         this.idTransaccion = idTransaccion;
         this.rutCliente = rutCliente;
         this.rutTrabajador = rutTrabajador;
-        this.idPelicula = idPelicula;
         this.fechaPrestamo = fechaPrestamo;
         this.fechaEntrega = fechaEntrega;
         this.montoAPagar = montoAPagar;
+        
+        listIdPeliculas = new ArrayList<>();
+        listIdPeliculas.addAll(listIdPeliculas);
     }
+
 
     public int getIdTransaccion() {
         return idTransaccion;
@@ -53,14 +58,6 @@ public class Prestamo {
 
     public void setRutTrabajador(String rutTrabajador) {
         this.rutTrabajador = rutTrabajador;
-    }
-
-    public int getIdPelicula() {
-        return idPelicula;
-    }
-
-    public void setIdPelicula(int idPelicula) {
-        this.idPelicula = idPelicula;
     }
 
     public String getFechaPrestamo() {
