@@ -131,7 +131,7 @@ public class InicioSesion extends javax.swing.JFrame {
         }
         
         /*verifican datos de inicio de sesion*/
-        Menu oMenu = new Menu();
+        Menu oMenu = new Menu(mapaPeliculas);
         this.dispose();
         oMenu.setVisible(true);
         
