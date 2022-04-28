@@ -69,6 +69,11 @@ public class Menu extends javax.swing.JFrame {
         btnEliminarPelicula.setText("Eliminar Pelicula");
 
         btnMostrarPelicula.setText("Mostrar Peliculas");
+        btnMostrarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarPeliculaActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Mostrar Prestamos");
 
@@ -143,6 +148,14 @@ public class Menu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnMostrarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPeliculaActionPerformed
+        // TODO add your handling code here:
+        
+        VerPeliculas oVerPeliculas = new VerPeliculas(mapaPeliculas);
+        this.dispose();
+        oVerPeliculas.setVisible(true);
+    }//GEN-LAST:event_btnMostrarPeliculaActionPerformed
 
     /**
      * @param args the command line arguments

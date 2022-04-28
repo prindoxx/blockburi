@@ -12,36 +12,34 @@ import java.util.*;
  */
 public class Prestamo {
     
-    private int idTransaccion;
+    private int idPrestamo;
     private String rutCliente;
     private String rutTrabajador;
-    private ArrayList<Integer> listIdPeliculas;//cambiar a oPelicula
+    //private ArrayList<Pelicula> listIdPeliculas;//cambiar a oPelicula
+    private HashMap<Integer, Pelicula> mapaPeliculas;
     private String fechaPrestamo; //falta importar libreria para fechas
     private String fechaEntrega;
     private int montoAPagar;
-    
+
     public Prestamo() {
     }
 
-    public Prestamo(int idTransaccion, String rutCliente, String rutTrabajador, ArrayList<Integer> listIdPeliculas, String fechaPrestamo, String fechaEntrega, int montoAPagar) {
-        this.idTransaccion = idTransaccion;
+    public Prestamo(int idPrestamo, String rutCliente, String rutTrabajador, String fechaPrestamo, String fechaEntrega, int montoAPagar) {
+        this.idPrestamo = idPrestamo;
         this.rutCliente = rutCliente;
         this.rutTrabajador = rutTrabajador;
+        this.mapaPeliculas = mapaPeliculas;
         this.fechaPrestamo = fechaPrestamo;
         this.fechaEntrega = fechaEntrega;
         this.montoAPagar = montoAPagar;
-        
-        listIdPeliculas = new ArrayList<>();
-        listIdPeliculas.addAll(listIdPeliculas);
     }
 
-
-    public int getIdTransaccion() {
-        return idTransaccion;
+    public int getIdPrestamo() {
+        return idPrestamo;
     }
 
-    public void setIdTransaccion(int idTransaccion) {
-        this.idTransaccion = idTransaccion;
+    public void setIdPrestamo(int idPrestamo) {
+        this.idPrestamo = idPrestamo;
     }
 
     public String getRutCliente() {
@@ -83,6 +81,5 @@ public class Prestamo {
     public void setMontoAPagar(int montoAPagar) {
         this.montoAPagar = montoAPagar;
     }
-    
     
 }

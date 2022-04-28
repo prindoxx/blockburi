@@ -4,8 +4,14 @@
  */
 package app;
 
+import DAO.DAOSelect;
+import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Pelicula;
+import model.Trabajador;
 
 /**
  *
@@ -124,16 +130,53 @@ public class InicioSesion extends javax.swing.JFrame {
     private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
         // TODO add your handling code here:
         
-        for (Pelicula oPelicula : mapaPeliculas.values()) {
+       
+        try {
+            Menu oMenu = new Menu(mapaPeliculas);
+            DAOSelect oDAOSelect = new DAOSelect();
             
-            System.out.println(""+oPelicula.getNombre());
+            String usuario, contra;
             
+            if ( txtUser.getText().equals("") || txtContra.getText().equals("") ){
+            
+                JOptionPane.showMessageDialog(this, "Ingreso Invalido");
+            
+            } else {
+        
+                Trabajador oTrabajador = new Trabajador();
+                usuario = txtUser.getText();
+                contra = txtContra.getText();
+
+                oTrabajador = oDAOSelect.inicioSesion(usuario, contra);
+
+                if ( oTrabajador != null ){
+                
+                    this.dispose();
+                    oMenu.setVisible(true);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(this, "Datos Incorrectos");
+                    txtUser.setText("");
+                    txtContra.setText("");
+
+                }
+            
+            }   
+        
+            for (Pelicula oPelicula : mapaPeliculas.values()) {
+
+                System.out.println(""+oPelicula.getNombre());
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        /*verifican datos de inicio de sesion*/
-        Menu oMenu = new Menu(mapaPeliculas);
-        this.dispose();
-        oMenu.setVisible(true);
+        
+        
+        
         
     }//GEN-LAST:event_btnInicioSesionActionPerformed
 
