@@ -49,6 +49,7 @@ public class Blockburi {
         mapaPeliculas.put(234567891, Pelicula2);
         mapaPeliculas.put(345678912, Pelicula3);**/
         
+        
         InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas);
         oInicioSesion.setVisible(true);
         

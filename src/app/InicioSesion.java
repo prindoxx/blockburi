@@ -130,8 +130,8 @@ public class InicioSesion extends javax.swing.JFrame {
     private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
         // TODO add your handling code here:
         
-       
         try {
+            
             Menu oMenu = new Menu(mapaPeliculas);
             DAOSelect oDAOSelect = new DAOSelect();
             
@@ -162,12 +162,6 @@ public class InicioSesion extends javax.swing.JFrame {
 
                 }
             
-            }   
-        
-            for (Pelicula oPelicula : mapaPeliculas.values()) {
-
-                System.out.println(""+oPelicula.getNombre());
-
             }
 
         } catch (SQLException ex) {

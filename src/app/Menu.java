@@ -22,12 +22,6 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         mapaPeliculas = mapa;
         setLocationRelativeTo(null);
-        System.out.println("menu");
-        for (Pelicula oPelicula : mapaPeliculas.values()) {
-            
-            System.out.println(""+oPelicula.getNombre());
-            
-        }
         
     }
 
@@ -65,6 +59,11 @@ public class Menu extends javax.swing.JFrame {
         btnVenta.setText("Venta");
 
         btnAgregarPelicula.setText("Agregar Pelicula");
+        btnAgregarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarPeliculaActionPerformed(evt);
+            }
+        });
 
         btnEliminarPelicula.setText("Eliminar Pelicula");
 
@@ -156,6 +155,15 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
         oVerPeliculas.setVisible(true);
     }//GEN-LAST:event_btnMostrarPeliculaActionPerformed
+
+    private void btnAgregarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaActionPerformed
+        // TODO add your handling code here:
+        AgregarPelicula oAgregarPelicula = new AgregarPelicula(mapaPeliculas);
+        
+        this.dispose();
+        oAgregarPelicula.setVisible(true);
+        
+    }//GEN-LAST:event_btnAgregarPeliculaActionPerformed
 
     /**
      * @param args the command line arguments
