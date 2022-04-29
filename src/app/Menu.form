@@ -23,7 +23,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -50,15 +53,16 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="77" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="btnPrestamo" max="32767" attributes="0"/>
-                      <Component id="btnVenta" max="32767" attributes="0"/>
-                      <Component id="btnAgregarPelicula" max="32767" attributes="0"/>
-                      <Component id="btnEliminarPelicula" max="32767" attributes="0"/>
-                      <Component id="btnMostrarPelicula" max="32767" attributes="0"/>
-                      <Component id="jButton1" max="32767" attributes="0"/>
-                      <Component id="jButton2" max="32767" attributes="0"/>
+                      <Component id="btnVenta" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnAgregarPelicula" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnEliminarPelicula" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnVerPrestamo" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnMostrarPelicula" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnMostrarPrestamos" alignment="1" pref="140" max="32767" attributes="0"/>
+                      <Component id="btnCerrarSesion" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               </Group>
@@ -76,12 +80,14 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnEliminarPelicula" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnVerPrestamo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="btnMostrarPelicula" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMostrarPrestamos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                  <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -112,6 +118,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar Pelicula"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarPeliculaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnMostrarPelicula">
           <Properties>
@@ -121,18 +130,23 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarPeliculaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnVerPrestamo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mostrar Prestamos"/>
+            <Property name="text" type="java.lang.String" value="Ver Prestamo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="btnCerrarSesion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarSesionActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnMostrarPrestamos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mostrar Prestamos"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

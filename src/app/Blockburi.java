@@ -25,21 +25,25 @@ public class Blockburi {
         //se llena el mapa de peliculas
         HashMap<Integer, Pelicula> mapaPeliculas = oDAOSelect.llenarMapaPelicula();
         
-        /*SE PLANEA CAMBIAR A LLENADO DE MAPA POR BASE DE DATOS*/
-        /**Pelicula Pelicula1 = new Pelicula(12345678, "The Shawshank Redemption", 1994, "Frank Darabont", "Drama", 20990, 6500, 13);
-        Pelicula Pelicula2 = new Pelicula(234567891, "El Padrino", 1972, "Francis Ford Coppola", "Drama", 24990, 8750, 4);
-        Pelicula Pelicula3 = new Pelicula(345678912, "El Padrino II", 1974, "Francis Ford Coppola", "Drama", 24990, 9990, 2);**/
-        ArrayList<Integer> listPelicula1 = new ArrayList<>();
-        listPelicula1.add(12345678);
+        //se llena mapa con prestamos
+        HashMap<Integer, Prestamo> mapaPrestamo = oDAOSelect.llenarPrestamo();
         
-        ArrayList<Integer> listPelicula2 = new ArrayList<>();
-        listPelicula2.add(12345678);
-        listPelicula2.add(234567891);
+        for (Map.Entry<Integer, Prestamo> entry : mapaPrestamo.entrySet()) {
+            
+            Prestamo oPrestamo = new Prestamo();
+            
+            oPrestamo = entry.getValue();
+            
+            /**System.out.println(""+oPrestamo.getIdPrestamo());
+            System.out.println(""+oPrestamo.getRutCliente());
+            System.out.println(""+oPrestamo.getMontoAPagar());**/
+            
+            //SE LLENAN LOS PRESTAMOS CON LAS PELICULAS
+            oPrestamo.mapaPeliculas = oPrestamo.llenaMapaPeliculasPrestamo(oPrestamo.getIdPrestamo(), mapaPeliculas);
+            
+        }
         
-        ArrayList<Integer> listPelicula3 = new ArrayList<>();
-        listPelicula3.add(12345678);
-        listPelicula3.add(234567891);
-        listPelicula3.add(345678912);
+        
         
         Trabajador Trabajador1 = new Trabajador("1-2", "Pablo", "1", "1");
         Trabajador Trabajador2 = new Trabajador("2-2", "Ivan", "2", "2");
@@ -50,8 +54,8 @@ public class Blockburi {
         mapaPeliculas.put(345678912, Pelicula3);**/
         
         
-        InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas);
-        oInicioSesion.setVisible(true);
+        /**InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas);
+        oInicioSesion.setVisible(true);**/
         
         
     }

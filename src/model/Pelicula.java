@@ -114,6 +114,11 @@ public class Pelicula {
         if ( mapa.containsKey(id) ){
             //esta la pelicula con ese id en el mapa
             System.out.println("La pelicula si esta");
+            /**Pelicula oPelicula = new Pelicula();
+            oPelicula = mapa.get(id);
+            System.out.println(""+oPelicula.getNombre());
+            System.out.println(""+oPelicula.getAnio());
+            System.out.println(""+oPelicula.getDirector());**/
             return mapa.get(id);
         } else {
             //no esta la pelicula en el mapa
@@ -184,6 +189,23 @@ public class Pelicula {
             oPelicula.setStock( ( oPelicula.getStock() + oPeliculaAgregar.getStock() ) );
             mapa.put(oPelicula.getId(), oPelicula); //se modifico el stock de la pelicula del mapa
             oUpdate.modificarStock(oPelicula);//se modifica el stock de la pelicula en la bd
+        }
+    
+    }
+    
+    public Pelicula eliminarPelicula( int id, HashMap<Integer, Pelicula> mapa ) throws SQLException {
+        //eliminacion por id
+        Pelicula oPelicula = buscarPelicula(mapa, id);
+        
+        if( oPelicula == null ){
+            //no existe la pelicula a eliminar
+            return null;
+        } else {
+            DAODelete oDelete = new DAODelete();
+            //existe la pelicula a eliminar
+            
+            oDelete.eliminarPelicula(oPelicula);
+            return mapa.remove(id);
         }
     
     }

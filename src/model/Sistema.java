@@ -12,15 +12,15 @@ import java.util.*;
  */
 public class Sistema {
     
-    private ArrayList<Prestamo> listPrestamos;
+    private HashMap<Integer, Prestamo> mapaPrestamos;
     
     public Sistema() {
     }
 
-    public Sistema(ArrayList<Prestamo> listPrestamos) {
-        listPrestamos = new ArrayList<>();
-        listPrestamos.addAll(listPrestamos);
+    public Sistema(HashMap<Integer, Prestamo> mapaPrestamos) {
+        this.mapaPrestamos = mapaPrestamos;
     }
 
+    
     
 }

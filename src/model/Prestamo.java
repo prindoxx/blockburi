@@ -5,6 +5,8 @@
 package model;
 
 import java.util.*;
+import DAO.*;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,7 +18,7 @@ public class Prestamo {
     private String rutCliente;
     private String rutTrabajador;
     //private ArrayList<Pelicula> listIdPeliculas;//cambiar a oPelicula
-    private HashMap<Integer, Pelicula> mapaPeliculas;
+    public HashMap<Integer, Pelicula> mapaPeliculas;
     private String fechaPrestamo; //falta importar libreria para fechas
     private String fechaEntrega;
     private int montoAPagar;
@@ -81,5 +83,27 @@ public class Prestamo {
     public void setMontoAPagar(int montoAPagar) {
         this.montoAPagar = montoAPagar;
     }
+
+
+    public HashMap<Integer, Pelicula> llenaMapaPeliculasPrestamo ( int idPrestamo, HashMap<Integer, Pelicula> mapa ) throws SQLException{
+    
+        HashMap<Integer, Pelicula> mapaPeliculas = new HashMap<>();
+        Pelicula oPelicula = new Pelicula();
+        ArrayList<Integer> listaIdPeliculas = new ArrayList<>();
+        DAOSelect oSelect = new DAOSelect();
+        
+        listaIdPeliculas = oSelect.llenarMapaPrestamoPelicula(idPrestamo);
+        
+        for ( int i=0; i < listaIdPeliculas.size() ; i++  ) {
+        
+            oPelicula = oPelicula.buscarPelicula(mapa, listaIdPeliculas.get(i));
+            mapaPeliculas.put(listaIdPeliculas.get(i), oPelicula);
+            
+        }
+        
+        return mapaPeliculas;
+    
+    }
+    
     
 }

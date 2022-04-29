@@ -42,8 +42,9 @@ public class Menu extends javax.swing.JFrame {
         btnAgregarPelicula = new javax.swing.JButton();
         btnEliminarPelicula = new javax.swing.JButton();
         btnMostrarPelicula = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnVerPrestamo = new javax.swing.JButton();
+        btnCerrarSesion = new javax.swing.JButton();
+        btnMostrarPrestamos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnEliminarPelicula.setText("Eliminar Pelicula");
+        btnEliminarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPeliculaActionPerformed(evt);
+            }
+        });
 
         btnMostrarPelicula.setText("Mostrar Peliculas");
         btnMostrarPelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -74,29 +80,32 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Mostrar Prestamos");
+        btnVerPrestamo.setText("Ver Prestamo");
 
-        jButton2.setText("Cerrar Sesion");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCerrarSesion.setText("Cerrar Sesion");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCerrarSesionActionPerformed(evt);
             }
         });
+
+        btnMostrarPrestamos.setText("Mostrar Prestamos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEliminarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVerPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMostrarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnMostrarPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(75, 75, 75))
         );
         jPanel1Layout.setVerticalGroup(
@@ -111,19 +120,23 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminarPelicula)
                 .addGap(18, 18, 18)
+                .addComponent(btnVerPrestamo)
+                .addGap(18, 18, 18)
                 .addComponent(btnMostrarPelicula)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnMostrarPrestamos)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addComponent(btnCerrarSesion)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,9 +148,13 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamoActionPerformed
         // TODO add your handling code here:
+        AgregarPrestamo oAgregarPrestamo = new AgregarPrestamo(mapaPeliculas);
+        
+        this.dispose();
+        oAgregarPrestamo.setVisible(true);
     }//GEN-LAST:event_btnPrestamoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         // TODO add your handling code here:
         
         InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas);
@@ -146,7 +163,7 @@ public class Menu extends javax.swing.JFrame {
         oInicioSesion.setVisible(true);
         
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnMostrarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPeliculaActionPerformed
         // TODO add your handling code here:
@@ -164,6 +181,15 @@ public class Menu extends javax.swing.JFrame {
         oAgregarPelicula.setVisible(true);
         
     }//GEN-LAST:event_btnAgregarPeliculaActionPerformed
+
+    private void btnEliminarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPeliculaActionPerformed
+        // TODO add your handling code here:
+        EliminarPelicula oEliminarPelicula = new EliminarPelicula(mapaPeliculas);
+        
+        this.dispose();
+        oEliminarPelicula.setVisible(true);
+        
+    }//GEN-LAST:event_btnEliminarPeliculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,12 +228,13 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarPelicula;
+    private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEliminarPelicula;
     private javax.swing.JButton btnMostrarPelicula;
+    private javax.swing.JButton btnMostrarPrestamos;
     private javax.swing.JButton btnPrestamo;
     private javax.swing.JButton btnVenta;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnVerPrestamo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
