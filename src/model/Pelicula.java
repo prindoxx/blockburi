@@ -113,7 +113,7 @@ public class Pelicula {
         /**mapa**/
         if ( mapa.containsKey(id) ){
             //esta la pelicula con ese id en el mapa
-            System.out.println("La pelicula si esta");
+            //System.out.println("La pelicula si esta");
             /**Pelicula oPelicula = new Pelicula();
             oPelicula = mapa.get(id);
             System.out.println(""+oPelicula.getNombre());
@@ -136,7 +136,7 @@ public class Pelicula {
             
             if( oPelicula.getNombre().equals(nombre) ){
                 //el nombre dado por parametro es igual al nombre de la pelicula
-                System.out.println("la peliucla si esta");
+                //System.out.println("la peliucla si esta");
                 return oPelicula;
             }
         

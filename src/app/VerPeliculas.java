@@ -7,7 +7,7 @@ package app;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
-import model.Pelicula;
+import model.*;
 
 /**
  *
@@ -17,14 +17,18 @@ public class VerPeliculas extends javax.swing.JFrame {
     
     DefaultTableModel oModeloTabla = new DefaultTableModel();
     HashMap<Integer, Pelicula> mapaPeliculas;
+    HashMap<Integer, Prestamo> mapaPrestamos;
+    HashMap<String, Trabajador> mapaTrabajadores;
 
     /**
      * Creates new form VerPeliculas
      */
-    public VerPeliculas(HashMap<Integer, Pelicula> mapa) {
+    public VerPeliculas(HashMap<Integer, Pelicula> mapaPelicula, HashMap<Integer, Prestamo> mapaPrestamo, HashMap<String, Trabajador> mapaTrabajador) {
         initComponents();
         setLocationRelativeTo(null);
-        mapaPeliculas = mapa;
+        mapaPeliculas = mapaPelicula;
+        mapaPrestamos = mapaPrestamo;
+        mapaTrabajadores = mapaTrabajador;
         
         oModeloTabla.addColumn("ID");
         oModeloTabla.addColumn("Nombre");
@@ -141,7 +145,7 @@ public class VerPeliculas extends javax.swing.JFrame {
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         // TODO add your handling code here:
-        Menu oMenu = new Menu(mapaPeliculas);
+        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         
         this.dispose();
         oMenu.setVisible(true);

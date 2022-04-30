@@ -43,19 +43,12 @@ public class Blockburi {
             
         }
         
+        //se llena mapa con trabajadores
+        HashMap<String, Trabajador> mapaTrabajadores = oDAOSelect.llenarMapaTrabajadores();
         
         
-        Trabajador Trabajador1 = new Trabajador("1-2", "Pablo", "1", "1");
-        Trabajador Trabajador2 = new Trabajador("2-2", "Ivan", "2", "2");
-        Trabajador Trabajador3 = new Trabajador("3-2", "Jefte", "3", "3");
-        
-        /**mapaPeliculas.put(12345678, Pelicula1);
-        mapaPeliculas.put(234567891, Pelicula2);
-        mapaPeliculas.put(345678912, Pelicula3);**/
-        
-        
-        /**InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas);
-        oInicioSesion.setVisible(true);**/
+        InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas, mapaPrestamo, mapaTrabajadores);
+        oInicioSesion.setVisible(true);
         
         
     }

@@ -18,13 +18,17 @@ import model.*;
 public class EliminarPelicula extends javax.swing.JFrame {
     
     HashMap<Integer, Pelicula> mapaPeliculas;
+    HashMap<Integer, Prestamo> mapaPrestamos;
+    HashMap<String, Trabajador> mapaTrabajadores;
 
     /**
      * Creates new form EliminarPelicula
      */
-    public EliminarPelicula(HashMap<Integer, Pelicula> mapa) {
+    public EliminarPelicula(HashMap<Integer, Pelicula> mapaPelicula, HashMap<Integer, Prestamo> mapaPrestamo, HashMap<String, Trabajador> mapaTrabajador) {
         initComponents();
-        mapaPeliculas = mapa;
+        mapaPeliculas = mapaPelicula;
+        mapaPrestamos = mapaPrestamo;
+        mapaTrabajadores = mapaTrabajador;
         setLocationRelativeTo(null);
     }
 
@@ -289,7 +293,7 @@ public class EliminarPelicula extends javax.swing.JFrame {
     private void btnAtrasIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasIdActionPerformed
         // TODO add your handling code here:
 
-        Menu oMenu = new Menu(mapaPeliculas);
+        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
 
         this.dispose();
         oMenu.setVisible(true);

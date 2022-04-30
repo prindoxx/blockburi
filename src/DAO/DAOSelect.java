@@ -173,5 +173,31 @@ public class DAOSelect {
     
     }
     
+    public HashMap<String, Trabajador> llenarMapaTrabajadores() throws SQLException{
+    
+        HashMap<String, Trabajador> mapaTrabajadores = new HashMap<>();
+        Trabajador oTrabajador;
+        
+        sql = "SELECT * FROM blockbuster.trabajador;";
+        oConexion.oResultSet = oConexion.ejecutarSelect(sql);
+        System.out.println(sql);
+        
+        while( oConexion.oResultSet.next() ) {
+        
+            oTrabajador = new Trabajador();
+            
+            oTrabajador.setRut(oConexion.oResultSet.getString("rut"));
+            oTrabajador.setNombre(oConexion.oResultSet.getString("nombre"));
+            oTrabajador.setUsuario(oConexion.oResultSet.getString("usuario"));
+            oTrabajador.setContrasenia(oConexion.oResultSet.getString("contrasenia"));
+            
+            mapaTrabajadores.put(oTrabajador.getRut(), oTrabajador);
+        
+        }
+        
+        return mapaTrabajadores;
+    
+    }
+    
     
 }

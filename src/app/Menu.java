@@ -5,7 +5,7 @@
 package app;
 
 import java.util.HashMap;
-import model.Pelicula;
+import model.*;
 
 /**
  *
@@ -14,13 +14,19 @@ import model.Pelicula;
 public class Menu extends javax.swing.JFrame {
     
     HashMap<Integer, Pelicula> mapaPeliculas;
+    HashMap<Integer, Prestamo> mapaPrestamos;
+    HashMap<String, Trabajador> mapaTrabajadores;
 
     /**
      * Creates new form Menu
      */
-    public Menu(HashMap<Integer, Pelicula> mapa) {
+    public Menu(HashMap<Integer, Pelicula> mapaPelicula, HashMap<Integer, Prestamo> mapaPrestamo, HashMap<String, Trabajador> mapaTrabajador) {
         initComponents();
-        mapaPeliculas = mapa;
+        
+        mapaPeliculas = mapaPelicula;
+        mapaPrestamos = mapaPrestamo;
+        mapaTrabajadores = mapaTrabajador;
+        
         setLocationRelativeTo(null);
         
     }
@@ -148,7 +154,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamoActionPerformed
         // TODO add your handling code here:
-        AgregarPrestamo oAgregarPrestamo = new AgregarPrestamo(mapaPeliculas);
+        AgregarPrestamo oAgregarPrestamo = new AgregarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         
         this.dispose();
         oAgregarPrestamo.setVisible(true);
@@ -157,7 +163,7 @@ public class Menu extends javax.swing.JFrame {
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         // TODO add your handling code here:
         
-        InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas);
+        InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas, mapaPrestamos , mapaTrabajadores);
         this.dispose();
         
         oInicioSesion.setVisible(true);
@@ -168,14 +174,14 @@ public class Menu extends javax.swing.JFrame {
     private void btnMostrarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPeliculaActionPerformed
         // TODO add your handling code here:
         
-        VerPeliculas oVerPeliculas = new VerPeliculas(mapaPeliculas);
+        VerPeliculas oVerPeliculas = new VerPeliculas(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         this.dispose();
         oVerPeliculas.setVisible(true);
     }//GEN-LAST:event_btnMostrarPeliculaActionPerformed
 
     private void btnAgregarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaActionPerformed
         // TODO add your handling code here:
-        AgregarPelicula oAgregarPelicula = new AgregarPelicula(mapaPeliculas);
+        AgregarPelicula oAgregarPelicula = new AgregarPelicula(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         
         this.dispose();
         oAgregarPelicula.setVisible(true);
@@ -184,7 +190,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnEliminarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPeliculaActionPerformed
         // TODO add your handling code here:
-        EliminarPelicula oEliminarPelicula = new EliminarPelicula(mapaPeliculas);
+        EliminarPelicula oEliminarPelicula = new EliminarPelicula(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         
         this.dispose();
         oEliminarPelicula.setVisible(true);

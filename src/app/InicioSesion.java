@@ -10,8 +10,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.Pelicula;
-import model.Trabajador;
+import model.*;
 
 /**
  *
@@ -20,13 +19,18 @@ import model.Trabajador;
 public class InicioSesion extends javax.swing.JFrame {
 
     HashMap<Integer, Pelicula> mapaPeliculas;
+    HashMap<Integer, Prestamo> mapaPrestamos;
+    HashMap<String, Trabajador> mapaTrabajadores;
+    
     /**
      * Creates new form InicioSesion
      */
-    public InicioSesion(HashMap<Integer, Pelicula> mapa) {
+    public InicioSesion(HashMap<Integer, Pelicula> mapaPelicula, HashMap<Integer, Prestamo> mapaPrestamo, HashMap<String, Trabajador> mapaTrabajador) {
         initComponents();
         
-        mapaPeliculas = mapa;
+        mapaPeliculas = mapaPelicula;
+        mapaPrestamos = mapaPrestamo;
+        mapaTrabajadores = mapaTrabajador;
         
         setLocationRelativeTo(null);
     }
@@ -132,7 +136,7 @@ public class InicioSesion extends javax.swing.JFrame {
         
         try {
             
-            Menu oMenu = new Menu(mapaPeliculas);
+            Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
             DAOSelect oDAOSelect = new DAOSelect();
             
             String usuario, contra;

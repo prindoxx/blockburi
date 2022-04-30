@@ -6,7 +6,7 @@ package app;
 
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import model.Pelicula;
+import model.*;
 
 /**
  *
@@ -15,13 +15,17 @@ import model.Pelicula;
 public class AgregarPrestamo extends javax.swing.JFrame {
     
     HashMap<Integer, Pelicula> mapaPeliculas;
+    HashMap<Integer, Prestamo> mapaPrestamos;
+    HashMap<String, Trabajador> mapaTrabajadores;
 
     /**
      * Creates new form AgregarPrestamo
      */
-    public AgregarPrestamo(HashMap<Integer, Pelicula> mapa) {
+    public AgregarPrestamo(HashMap<Integer, Pelicula> mapaPelicula, HashMap<Integer, Prestamo> mapaPrestamo, HashMap<String, Trabajador> mapaTrabajador) {
         initComponents();
-        mapaPeliculas = mapa;
+        mapaPeliculas = mapaPelicula;
+        mapaPrestamos = mapaPrestamo;
+        mapaTrabajadores = mapaTrabajador;
         setLocationRelativeTo(null);
     }
 
@@ -54,6 +58,8 @@ public class AgregarPrestamo extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
         btnArrendarPelicula = new javax.swing.JButton();
+        txtRutTrabajador = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +95,12 @@ public class AgregarPrestamo extends javax.swing.JFrame {
 
         jLabel6.setText("Fecha Devolucion:");
 
+        txtFechaDevolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaDevolucionActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("--------------------------------------------------------------------------------------");
 
         btnAtras.setText("Atras");
@@ -99,6 +111,13 @@ public class AgregarPrestamo extends javax.swing.JFrame {
         });
 
         btnArrendarPelicula.setText("Arrendar Pelicula");
+        btnArrendarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArrendarPeliculaActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Rut Trabajador:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,6 +127,12 @@ public class AgregarPrestamo extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel7))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnAtras)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnArrendarPelicula)
+                .addGap(67, 67, 67))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -115,7 +140,8 @@ public class AgregarPrestamo extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel9))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtFechaArriendo)
@@ -123,18 +149,13 @@ public class AgregarPrestamo extends javax.swing.JFrame {
                     .addComponent(txtNombrePelicula)
                     .addComponent(txtIdPelicula)
                     .addComponent(txtRutCliente)
-                    .addComponent(txtFechaDevolucion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                    .addComponent(txtFechaDevolucion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(txtRutTrabajador))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(btnAtras)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnArrendarPelicula)
-                .addGap(67, 67, 67))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,19 +176,23 @@ public class AgregarPrestamo extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(26, 26, 26)
                 .addComponent(jLabel7)
-                .addGap(27, 27, 27)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtRutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRutTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFechaArriendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtFechaDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                    .addComponent(txtFechaDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtras)
                     .addComponent(btnArrendarPelicula))
@@ -221,7 +246,7 @@ public class AgregarPrestamo extends javax.swing.JFrame {
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         // TODO add your handling code here:
-        Menu oMenu = new Menu(mapaPeliculas);
+        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         
         this.dispose();
         oMenu.setVisible(true);
@@ -235,6 +260,62 @@ public class AgregarPrestamo extends javax.swing.JFrame {
         txtPrecioArriendo.setText("");
         
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtFechaDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaDevolucionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaDevolucionActionPerformed
+
+    private void btnArrendarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArrendarPeliculaActionPerformed
+        // TODO add your handling code here:
+        
+        if ( txtIdPelicula.getText().equals("") || txtRutCliente.getText().equals("") || txtRutTrabajador.getText().equals("") || txtFechaArriendo.getText().equals("") || txtFechaDevolucion.getText().equals("") )  { 
+        
+            JOptionPane.showMessageDialog(this, "Complete los datos");
+        
+        } else { 
+        
+            //arrendar pelicula
+            
+            JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
+            
+            int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
+        
+            //arrendar pelicula
+            
+            if( seleccion == 0 ) { //SI
+            
+                txtRutCliente.setEditable(false);
+                txtRutTrabajador.setEditable(false);
+                txtFechaArriendo.setEditable(false);
+                txtFechaDevolucion.setEditable(false);
+
+                txtIdPelicula.setText("");
+                txtNombrePelicula.setText("");
+                txtPrecioArriendo.setText("");
+            
+            } else if ( seleccion == 1 ) { //NO
+            
+                //se agrega la pelicula que se arreglo a prestamo
+                
+                txtRutCliente.setEditable(true);
+                txtFechaArriendo.setEditable(true);
+                txtFechaDevolucion.setEditable(true);
+
+                txtRutCliente.setText("");
+                txtRutTrabajador.setText("");
+                txtFechaArriendo.setText("");
+                txtFechaDevolucion.setText("");
+                txtIdPelicula.setText("");
+                txtNombrePelicula.setText("");
+                txtPrecioArriendo.setText("");
+                
+                JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
+            
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btnArrendarPeliculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,6 +364,7 @@ public class AgregarPrestamo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtFechaArriendo;
     private javax.swing.JTextField txtFechaDevolucion;
@@ -290,5 +372,6 @@ public class AgregarPrestamo extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombrePelicula;
     private javax.swing.JTextField txtPrecioArriendo;
     private javax.swing.JTextField txtRutCliente;
+    private javax.swing.JTextField txtRutTrabajador;
     // End of variables declaration//GEN-END:variables
 }
