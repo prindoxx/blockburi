@@ -87,6 +87,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnVerPrestamo.setText("Ver Prestamo");
+        btnVerPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerPrestamoActionPerformed(evt);
+            }
+        });
 
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -196,6 +201,16 @@ public class Menu extends javax.swing.JFrame {
         oEliminarPelicula.setVisible(true);
         
     }//GEN-LAST:event_btnEliminarPeliculaActionPerformed
+
+    private void btnVerPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPrestamoActionPerformed
+        // TODO add your handling code here:
+        
+        VerPrestamo oVerPrestamo = new VerPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+        
+        this.dispose();
+        oVerPrestamo.setVisible(true);
+        
+    }//GEN-LAST:event_btnVerPrestamoActionPerformed
 
     /**
      * @param args the command line arguments

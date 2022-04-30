@@ -5,6 +5,7 @@
 package app;
 
 import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import model.*;
 
@@ -275,6 +276,25 @@ public class AgregarPrestamo extends javax.swing.JFrame {
         } else { 
         
             //arrendar pelicula
+            Prestamo oPrestamo = new Prestamo();
+            Pelicula oPelicula = new Pelicula();
+            
+            oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+            
+            oPrestamo = oPrestamo.arrendarPelicula(mapaPrestamos, mapaTrabajadores, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaArriendo.getText(), txtFechaDevolucion.getText());
+            
+            mapaPrestamos.put(oPrestamo.getIdPrestamo(), oPrestamo);
+            
+            for (Map.Entry<Integer, Prestamo> entry : mapaPrestamos.entrySet()) {
+                Prestamo oPrestamo1 = new Prestamo();
+                oPrestamo1 = entry.getValue();
+                
+                System.out.println(""+oPrestamo1.getIdPrestamo());
+                System.out.println(""+oPrestamo1.getRutCliente());
+                System.out.println(""+oPrestamo1.getRutTrabajador());
+                
+                
+            }
             
             JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
             

@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.HashMap;
+
 /**
  *
  * @author jefte
@@ -57,5 +59,16 @@ public class Trabajador {
         this.contrasenia = contrasenia;
     }
     
+    
+    public boolean trabajadorExiste ( HashMap<String, Trabajador> mapaTrabajadores, String rutTrabajador){
+        
+        if ( mapaTrabajadores.containsKey(rut) ){
+            //el trabajador existe en el mapa de trabajadores
+            return true;
+        }
+        //el trabajador no existe en el mapa de trabajadores
+        return false;
+        
+    }
     
 }

@@ -26,9 +26,9 @@ public class Blockburi {
         HashMap<Integer, Pelicula> mapaPeliculas = oDAOSelect.llenarMapaPelicula();
         
         //se llena mapa con prestamos
-        HashMap<Integer, Prestamo> mapaPrestamo = oDAOSelect.llenarPrestamo();
+        HashMap<Integer, Prestamo> mapaPrestamos = oDAOSelect.llenarPrestamo();
         
-        for (Map.Entry<Integer, Prestamo> entry : mapaPrestamo.entrySet()) {
+        for (Map.Entry<Integer, Prestamo> entry : mapaPrestamos.entrySet()) {
             
             Prestamo oPrestamo = new Prestamo();
             
@@ -47,7 +47,7 @@ public class Blockburi {
         HashMap<String, Trabajador> mapaTrabajadores = oDAOSelect.llenarMapaTrabajadores();
         
         
-        InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas, mapaPrestamo, mapaTrabajadores);
+        InicioSesion oInicioSesion = new InicioSesion(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         oInicioSesion.setVisible(true);
         
         
