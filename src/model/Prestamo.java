@@ -6,7 +6,9 @@ package model;
 
 import java.util.*;
 import DAO.*;
+import app.AgregarPrestamo;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -138,9 +140,14 @@ public class Prestamo {
             
             return oPrestamo;
             
+        } else {
+            //el trabajador no existe en el mapa
+            AgregarPrestamo oAgregarPrestamo = new AgregarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+            JOptionPane.showMessageDialog(oAgregarPrestamo, "Ingrese un RUT de Trabajador valido");
+            return null;
         }
         
-        return null;
+        
         
     }
     

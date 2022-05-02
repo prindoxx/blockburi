@@ -283,55 +283,68 @@ public class AgregarPrestamo extends javax.swing.JFrame {
             
             oPrestamo = oPrestamo.arrendarPelicula(mapaPrestamos, mapaTrabajadores, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaArriendo.getText(), txtFechaDevolucion.getText());
             
-            mapaPrestamos.put(oPrestamo.getIdPrestamo(), oPrestamo);
+            if ( oPrestamo != null ){
             
-            for (Map.Entry<Integer, Prestamo> entry : mapaPrestamos.entrySet()) {
-                Prestamo oPrestamo1 = new Prestamo();
-                oPrestamo1 = entry.getValue();
-                
-                System.out.println(""+oPrestamo1.getIdPrestamo());
-                System.out.println(""+oPrestamo1.getRutCliente());
-                System.out.println(""+oPrestamo1.getRutTrabajador());
-                
-                
-            }
+                mapaPrestamos.put(oPrestamo.getIdPrestamo(), oPrestamo);
             
-            JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
+                for (Map.Entry<Integer, Prestamo> entry : mapaPrestamos.entrySet()) {
+                    Prestamo oPrestamo1 = new Prestamo();
+                    oPrestamo1 = entry.getValue();
+
+                    System.out.println(""+oPrestamo1.getIdPrestamo());
+                    System.out.println(""+oPrestamo1.getRutCliente());
+                    System.out.println(""+oPrestamo1.getRutTrabajador());
+                
+                
+                }
             
-            int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
+                JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
+                
+                int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
         
-            //arrendar pelicula
-            
-            if( seleccion == 0 ) { //SI
-            
-                txtRutCliente.setEditable(false);
-                txtRutTrabajador.setEditable(false);
-                txtFechaArriendo.setEditable(false);
-                txtFechaDevolucion.setEditable(false);
-
-                txtIdPelicula.setText("");
-                txtNombrePelicula.setText("");
-                txtPrecioArriendo.setText("");
-            
-            } else if ( seleccion == 1 ) { //NO
-            
-                //se agrega la pelicula que se arreglo a prestamo
+                //arrendar pelicula
                 
-                txtRutCliente.setEditable(true);
-                txtFechaArriendo.setEditable(true);
-                txtFechaDevolucion.setEditable(true);
+                if( seleccion == 0 ) { //SI
+            
+                    txtRutCliente.setEditable(false);
+                    txtRutTrabajador.setEditable(false);
+                    txtFechaArriendo.setEditable(false);
+                    txtFechaDevolucion.setEditable(false);
 
+                    txtIdPelicula.setText("");
+                    txtNombrePelicula.setText("");
+                    txtPrecioArriendo.setText("");
+            
+                } else if ( seleccion == 1 ) { //NO
+            
+                    //se agrega la pelicula que se arreglo a prestamo
+
+                    txtRutCliente.setEditable(true);
+                    txtFechaArriendo.setEditable(true);
+                    txtFechaDevolucion.setEditable(true);
+
+                    txtRutCliente.setText("");
+                    txtRutTrabajador.setText("");
+                    txtFechaArriendo.setText("");
+                    txtFechaDevolucion.setText("");
+                    txtIdPelicula.setText("");
+                    txtNombrePelicula.setText("");
+                    txtPrecioArriendo.setText("");
+
+                    JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
+            
+                }
+            
+            } else if ( oPrestamo == null ){ 
+            
+                JOptionPane.showMessageDialog(this, "No se pudo agregar el Prestamo");
                 txtRutCliente.setText("");
                 txtRutTrabajador.setText("");
                 txtFechaArriendo.setText("");
                 txtFechaDevolucion.setText("");
-                txtIdPelicula.setText("");
-                txtNombrePelicula.setText("");
-                txtPrecioArriendo.setText("");
-                
-                JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
             
             }
+            
             
         }
         
