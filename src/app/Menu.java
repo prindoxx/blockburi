@@ -51,9 +51,9 @@ public class Menu extends javax.swing.JFrame {
         btnAgregarPelicula = new javax.swing.JButton();
         btnEliminarPelicula = new javax.swing.JButton();
         btnMostrarPelicula = new javax.swing.JButton();
-        btnVerPrestamo = new javax.swing.JButton();
+        btnMostrarPrestamo = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
-        btnMostrarPrestamos = new javax.swing.JButton();
+        btnMostrarSistema = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,10 +90,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnVerPrestamo.setText("Ver Prestamo");
-        btnVerPrestamo.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarPrestamo.setText("Mostrar Prestamo");
+        btnMostrarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerPrestamoActionPerformed(evt);
+                btnMostrarPrestamoActionPerformed(evt);
             }
         });
 
@@ -104,7 +104,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnMostrarPrestamos.setText("Mostrar Prestamos");
+        btnMostrarSistema.setText("Mostrar Sistema");
 
         btnReporte.setText("Reporte txt");
         btnReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -124,9 +124,9 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEliminarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVerPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMostrarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrarPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(btnMostrarSistema, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(75, 75, 75))
@@ -143,15 +143,15 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminarPelicula)
                 .addGap(18, 18, 18)
-                .addComponent(btnVerPrestamo)
+                .addComponent(btnMostrarPrestamo)
                 .addGap(18, 18, 18)
                 .addComponent(btnMostrarPelicula)
                 .addGap(18, 18, 18)
-                .addComponent(btnMostrarPrestamos)
-                .addGap(18, 18, 18)
-                .addComponent(btnCerrarSesion)
+                .addComponent(btnMostrarSistema)
                 .addGap(18, 18, 18)
                 .addComponent(btnReporte)
+                .addGap(18, 18, 18)
+                .addComponent(btnCerrarSesion)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -193,7 +193,7 @@ public class Menu extends javax.swing.JFrame {
     private void btnMostrarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPeliculaActionPerformed
         // TODO add your handling code here:
         
-        VerPeliculas oVerPeliculas = new VerPeliculas(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+        MostrarPelicula oVerPeliculas = new MostrarPelicula(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         this.dispose();
         oVerPeliculas.setVisible(true);
     }//GEN-LAST:event_btnMostrarPeliculaActionPerformed
@@ -216,15 +216,15 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEliminarPeliculaActionPerformed
 
-    private void btnVerPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPrestamoActionPerformed
+    private void btnMostrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPrestamoActionPerformed
         // TODO add your handling code here:
         
-        VerPrestamo oVerPrestamo = new VerPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+        MostrarPrestamo oVerPrestamo = new MostrarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         
         this.dispose();
         oVerPrestamo.setVisible(true);
         
-    }//GEN-LAST:event_btnVerPrestamoActionPerformed
+    }//GEN-LAST:event_btnMostrarPrestamoActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         // TODO add your handling code here:
@@ -278,11 +278,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEliminarPelicula;
     private javax.swing.JButton btnMostrarPelicula;
-    private javax.swing.JButton btnMostrarPrestamos;
+    private javax.swing.JButton btnMostrarPrestamo;
+    private javax.swing.JButton btnMostrarSistema;
     private javax.swing.JButton btnPrestamo;
     private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnVenta;
-    private javax.swing.JButton btnVerPrestamo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

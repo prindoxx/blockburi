@@ -14,7 +14,7 @@ import model.*;
  *
  * @author jefte
  */
-public class VerPrestamo extends javax.swing.JFrame {
+public class MostrarPrestamo extends javax.swing.JFrame {
     
     DefaultTableModel oModeloTabla = new DefaultTableModel();
     HashMap<Integer, Pelicula> mapaPeliculas;
@@ -24,7 +24,7 @@ public class VerPrestamo extends javax.swing.JFrame {
     /**
      * Creates new form VerPrestamo
      */
-    public VerPrestamo(HashMap<Integer, Pelicula> mapaPelicula, HashMap<Integer, Prestamo> mapaPrestamo, HashMap<String, Trabajador> mapaTrabajador) {
+    public MostrarPrestamo(HashMap<Integer, Pelicula> mapaPelicula, HashMap<Integer, Prestamo> mapaPrestamo, HashMap<String, Trabajador> mapaTrabajador) {
         initComponents();
         mapaPeliculas = mapaPelicula;
         mapaPrestamos = mapaPrestamo;
@@ -40,7 +40,7 @@ public class VerPrestamo extends javax.swing.JFrame {
         tblPeliculas.setModel(oModeloTabla);
     }
 
-    private VerPrestamo() {
+    private MostrarPrestamo() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -310,20 +310,21 @@ public class VerPrestamo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VerPrestamo().setVisible(true);
+                new MostrarPrestamo().setVisible(true);
             }
         });
     }

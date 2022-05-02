@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class Sistema {
     
-    private HashMap<Integer, Prestamo> mapaPrestamos;
+    public HashMap<Integer, Prestamo> mapaPrestamos;
     
     public Sistema() {
     }

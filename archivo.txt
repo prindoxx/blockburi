@@ -7,7 +7,8 @@ Fecha Prestamo: 25-04-22
 Fecha Entrega: 30-04-22
 Monto a Pagar: 1000
 Peliculas:
-Película n°1id: 1
+Película n°1
+id: 1
 nombre: pelicula
 Año: 2000
 Director: pucv
@@ -15,7 +16,8 @@ Genero: terror
 Precio venta: 99999
 Precio Arriendo: 99999
 
-Película n°1id: 12345678
+Película n°2
+id: 12345678
 nombre: The Shawshank Redemption
 Año: 1994
 Director: Frank Darabont
@@ -23,7 +25,8 @@ Genero: Drama
 Precio venta: 20990
 Precio Arriendo: 6500
 
-Película n°1id: 234567891
+Película n°3
+id: 234567891
 nombre: El padrino
 Año: 1972
 Director: Francis Ford Coppola
@@ -39,7 +42,8 @@ Fecha Prestamo: 26-04-22
 Fecha Entrega: 01-05-22
 Monto a Pagar: 2000
 Peliculas:
-Película n°1id: 1
+Película n°1
+id: 1
 nombre: pelicula
 Año: 2000
 Director: pucv
@@ -47,7 +51,8 @@ Genero: terror
 Precio venta: 99999
 Precio Arriendo: 99999
 
-Película n°1id: 2
+Película n°2
+id: 2
 nombre: prueba
 Año: 10
 Director: yo el

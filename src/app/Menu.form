@@ -59,9 +59,9 @@
                       <Component id="btnVenta" alignment="1" max="32767" attributes="0"/>
                       <Component id="btnAgregarPelicula" alignment="1" max="32767" attributes="0"/>
                       <Component id="btnEliminarPelicula" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnVerPrestamo" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnMostrarPrestamo" alignment="1" max="32767" attributes="0"/>
                       <Component id="btnMostrarPelicula" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnMostrarPrestamos" alignment="1" pref="140" max="32767" attributes="0"/>
+                      <Component id="btnMostrarSistema" alignment="1" pref="140" max="32767" attributes="0"/>
                       <Component id="btnCerrarSesion" max="32767" attributes="0"/>
                       <Component id="btnReporte" max="32767" attributes="0"/>
                   </Group>
@@ -81,15 +81,15 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnEliminarPelicula" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnVerPrestamo" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMostrarPrestamo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="btnMostrarPelicula" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnMostrarPrestamos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMostrarSistema" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnReporte" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -133,12 +133,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarPeliculaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnVerPrestamo">
+        <Component class="javax.swing.JButton" name="btnMostrarPrestamo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver Prestamo"/>
+            <Property name="text" type="java.lang.String" value="Mostrar Prestamo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerPrestamoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarPrestamoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCerrarSesion">
@@ -149,9 +149,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarSesionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnMostrarPrestamos">
+        <Component class="javax.swing.JButton" name="btnMostrarSistema">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mostrar Prestamos"/>
+            <Property name="text" type="java.lang.String" value="Mostrar Sistema"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnReporte">

@@ -20,7 +20,7 @@ public class DAOSelect {
     
     //haciendo conexion a DB, entregando parametros
     public DAOSelect() throws SQLException {
-        oConexion = new Conexion("localhost", "blockbuster", "root", "1234");
+        oConexion = new Conexion("localhost", "blockbuster", "root", "Jefte01432201");
     }
     
     //
