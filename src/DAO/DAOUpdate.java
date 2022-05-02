@@ -20,7 +20,7 @@ public class DAOUpdate {
     
     //haciendo conexion a DB, entregando parametros
     public DAOUpdate() throws SQLException {
-        oConexion = new Conexion("localhost", "blockbuster", "root", "Jefte01432201");
+        oConexion = new Conexion("localhost", "blockbuster", "root", "1234");
     }
     
     public void modificarStock( Pelicula oPelicula ) throws SQLException {

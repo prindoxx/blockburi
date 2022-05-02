@@ -233,6 +233,7 @@ public class Menu extends javax.swing.JFrame {
         try {
             archivo.escribirMapaTrabajadores(mapaTrabajadores);
             archivo.escribirMapaPrestamos(mapaPrestamos);
+            archivo.escribirMapaPeliculas(mapaPeliculas);
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }

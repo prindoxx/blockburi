@@ -63,7 +63,7 @@ public class ArchivosTexto {
     public void escribirMapaPrestamos(HashMap mapaPrestamos) throws IOException{
         
         int cont=1;
-        FileWriter escritura = new FileWriter(archivo);
+        FileWriter escritura = new FileWriter("archivo.txt", true);
         
         HashMap<Integer, Prestamo> mapaPrestamos2 = new HashMap<>();
         mapaPrestamos2 = mapaPrestamos;
@@ -79,7 +79,7 @@ public class ArchivosTexto {
             escritura.write("Rut Trabajador: "+oPrestamo.getRutTrabajador()+"\n");
             escritura.write("Fecha Prestamo: "+oPrestamo.getFechaPrestamo()+"\n");
             escritura.write("Fecha Entrega: "+oPrestamo.getFechaEntrega()+"\n");
-            escritura.write("Monto a Pagar: "+oPrestamo.getMontoAPagar()+"\n");
+            escritura.write("Monto a Pagar: "+oPrestamo.getMontoAPagar()+"\n\n");
             escritura.write("Peliculas:\n");
             HashMap<Integer, Pelicula> mapaPeliculaPre = oPrestamo.mapaPeliculas;
             cont=1;
@@ -88,14 +88,7 @@ public class ArchivosTexto {
                 
                 Pelicula oPelicula = new Pelicula();
                 oPelicula = entry1.getValue();
-                /**  private int id;
-                    private String nombre;
-                    private int anio;
-                    private String director;
-                    private String genero;
-                    private int precioVenta;
-                    private int precioArriendo;
-                    private int stock;**/
+                
                 escritura.write("Película n°"+cont+"\n");
                 escritura.write("id: "+oPelicula.getId()+"\n");
                 escritura.write("nombre: "+oPelicula.getNombre()+"\n");
@@ -112,6 +105,33 @@ public class ArchivosTexto {
         }
         escritura.write("\n");
         
+        escritura.close();
+        System.out.println("Texto añadido");
+    }
+    
+    public void escribirMapaPeliculas(HashMap mapaPeliculas) throws IOException{
+        
+        FileWriter escritura = new FileWriter("archivo.txt", true);
+        
+        HashMap<Integer, Pelicula> mapaPeliculas2 = new HashMap<>();
+        mapaPeliculas2 = mapaPeliculas;
+        
+        escritura.write("Películas\n\n");
+        for( Map.Entry<Integer, Pelicula> entry : mapaPeliculas2.entrySet() ){
+            
+            Pelicula oPelicula = new Pelicula();
+            oPelicula = entry.getValue();
+
+            escritura.write("id: "+oPelicula.getId()+"\n");
+            escritura.write("nombre: "+oPelicula.getNombre()+"\n");
+            escritura.write("Año: "+oPelicula.getAnio()+"\n");
+            escritura.write("Director: "+oPelicula.getDirector()+"\n");
+            escritura.write("Genero: "+oPelicula.getGenero()+"\n");
+            escritura.write("Precio venta: "+oPelicula.getPrecioVenta()+"\n");
+            escritura.write("Precio Arriendo: "+oPelicula.getPrecioArriendo()+"\n");
+            escritura.write("Stock: "+oPelicula.getStock()+"\n\n");
+            escritura.write("---------------------------------\n");
+        }
         escritura.close();
         System.out.println("Texto añadido");
     }
