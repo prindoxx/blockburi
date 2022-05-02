@@ -5,6 +5,9 @@
 package app;
 
 import java.util.HashMap;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.*;
 
 /**
@@ -51,6 +54,7 @@ public class Menu extends javax.swing.JFrame {
         btnVerPrestamo = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
         btnMostrarPrestamos = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,6 +106,13 @@ public class Menu extends javax.swing.JFrame {
 
         btnMostrarPrestamos.setText("Mostrar Prestamos");
 
+        btnReporte.setText("Reporte txt");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,7 +127,8 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnVerPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMostrarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMostrarPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(75, 75, 75))
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,7 +150,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(btnMostrarPrestamos)
                 .addGap(18, 18, 18)
                 .addComponent(btnCerrarSesion)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnReporte)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,7 +165,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -212,6 +226,18 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnVerPrestamoActionPerformed
 
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        // TODO add your handling code here:
+        ArchivosTexto archivo = new ArchivosTexto();
+        archivo.crearArchivoDeTexto();
+        try {
+            archivo.escribirMapaTrabajadores(mapaTrabajadores);
+            archivo.escribirMapaPrestamos(mapaPrestamos);
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,6 +280,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnMostrarPelicula;
     private javax.swing.JButton btnMostrarPrestamos;
     private javax.swing.JButton btnPrestamo;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnVenta;
     private javax.swing.JButton btnVerPrestamo;
     private javax.swing.JPanel jPanel1;
