@@ -28,6 +28,7 @@ public class Blockburi {
         //se llena mapa con prestamos
         //HashMap<Integer, Prestamo> mapaPrestamos = oDAOSelect.llenarPrestamo();
         
+        //Se llena el mapa de prestamos de la clase sistema con los prestamos que hay en la BD
         Sistema oSistema = new Sistema();
         oSistema.mapaPrestamos = oDAOSelect.llenarPrestamo();
         

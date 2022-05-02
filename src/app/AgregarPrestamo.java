@@ -287,24 +287,25 @@ public class AgregarPrestamo extends javax.swing.JFrame {
             
                 mapaPrestamos.put(oPrestamo.getIdPrestamo(), oPrestamo);
             
-                for (Map.Entry<Integer, Prestamo> entry : mapaPrestamos.entrySet()) {
+                /**for (Map.Entry<Integer, Prestamo> entry : mapaPrestamos.entrySet()) {
                     Prestamo oPrestamo1 = new Prestamo();
                     oPrestamo1 = entry.getValue();
 
-                    System.out.println(""+oPrestamo1.getIdPrestamo());
-                    System.out.println(""+oPrestamo1.getRutCliente());
-                    System.out.println(""+oPrestamo1.getRutTrabajador());
+                    System.out.println("idPrestamo: "+oPrestamo1.getIdPrestamo());
+                    //System.out.println(""+oPrestamo1.getRutCliente());
+                    //System.out.println(""+oPrestamo1.getRutTrabajador());
                 
                 
-                }
+                }**/
             
                 JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
                 
                 int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
         
-                //arrendar pelicula
+                //arrendar otra pelicula
                 
                 if( seleccion == 0 ) { //SI
+                    System.out.println("ARRENDAR OTRA PELICULA: SIII");
             
                     txtRutCliente.setEditable(false);
                     txtRutTrabajador.setEditable(false);
@@ -316,6 +317,7 @@ public class AgregarPrestamo extends javax.swing.JFrame {
                     txtPrecioArriendo.setText("");
             
                 } else if ( seleccion == 1 ) { //NO
+                    System.out.println("ARRENDAR OTRA PELICULA: NOOOO");
             
                     //se agrega la pelicula que se arreglo a prestamo
 

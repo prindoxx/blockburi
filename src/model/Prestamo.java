@@ -138,6 +138,8 @@ public class Prestamo {
             
             oPrestamo.setMontoAPagar(total);
             
+            System.out.println("idPrestamo: "+oPrestamo.getIdPrestamo());
+            
             return oPrestamo;
             
         } else {
