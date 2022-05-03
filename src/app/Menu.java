@@ -251,6 +251,11 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnMostrarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarSistemaActionPerformed
         // TODO add your handling code here:
+        MostrarSistema oMostrarSistema = new MostrarSistema(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+        
+        this.dispose();
+        oMostrarSistema.setVisible(true);
+        
     }//GEN-LAST:event_btnMostrarSistemaActionPerformed
 
     private void btnEliminarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoActionPerformed
