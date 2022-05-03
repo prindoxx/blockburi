@@ -107,21 +107,29 @@ public class Prestamo {
     
     }
     
-    public Prestamo arrendarPelicula(HashMap<Integer, Prestamo> mapaPrestamos, HashMap<String, Trabajador> mapaTrabajadores, Pelicula oPeliculaArrendar, String rutTrabajador, String rutCliente, String fechaAr, String fechaDev ) {
+    public Prestamo arrendarPelicula(HashMap<Integer, Prestamo> mapaPrestamos, HashMap<String, Trabajador> mapaTrabajadores, HashMap<Integer, Pelicula> mapaArrendarPelis, Pelicula oPeliculaArrendar, String rutTrabajador, String rutCliente, String fechaAr, String fechaDev ) {
     
         Trabajador oTrabajador = new Trabajador();
         oTrabajador.setRut(rutTrabajador);
         if ( oTrabajador.trabajadorExiste(mapaTrabajadores, rutTrabajador) ){
             //existe el trabajador en el mapa
             
-            int numeroRandom = (int)(Math.random()*1000000000+1);//numero random creado para usar de ID
+            //int numeroRandom = (int)(Math.random()*1000000000+1);//numero random creado para usar de ID
             int total=0;
             Prestamo oPrestamo = new Prestamo();
-            HashMap<Integer, Pelicula> mapaPeliculasArrendar = new HashMap<>();
+            HashMap<Integer, Pelicula> mapaPeliculasArrendar = mapaArrendarPelis;
             
             mapaPeliculasArrendar.put(oPeliculaArrendar.getId(), oPeliculaArrendar);
             
-            oPrestamo.setIdPrestamo(numeroRandom);
+            for (Map.Entry<Integer, Pelicula> entry : mapaPeliculasArrendar.entrySet()) {
+                Pelicula oPelicula1 = entry.getValue();
+                
+                System.out.println("ID PELICULA MAPA: "+oPelicula1.getId());
+                System.out.println("NOMBRE PELICULA MAPA: "+oPelicula1.getNombre());
+                
+            }
+            
+            //oPrestamo.setIdPrestamo(numeroRandom);
             oPrestamo.setRutCliente(rutCliente);
             oPrestamo.setRutTrabajador(rutTrabajador);
             oPrestamo.mapaPeliculas = mapaPeliculasArrendar;
@@ -138,7 +146,7 @@ public class Prestamo {
             
             oPrestamo.setMontoAPagar(total);
             
-            System.out.println("idPrestamo: "+oPrestamo.getIdPrestamo());
+            //System.out.println("idPrestamo: "+oPrestamo.getIdPrestamo());
             
             return oPrestamo;
             
@@ -148,7 +156,6 @@ public class Prestamo {
             JOptionPane.showMessageDialog(oAgregarPrestamo, "Ingrese un RUT de Trabajador valido");
             return null;
         }
-        
         
         
     }

@@ -18,6 +18,10 @@ public class AgregarPrestamo extends javax.swing.JFrame {
     HashMap<Integer, Pelicula> mapaPeliculas;
     HashMap<Integer, Prestamo> mapaPrestamos;
     HashMap<String, Trabajador> mapaTrabajadores;
+    
+    //int numeroRandom = (int)(Math.random()*1000000000+1);//numero random creado para usar de ID
+    
+    HashMap<Integer, Pelicula> mapaArrendarPelis = new HashMap<>();
 
     /**
      * Creates new form AgregarPrestamo
@@ -222,6 +226,8 @@ public class AgregarPrestamo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ingrese ID de pelicula");
         
         } else {
+            
+            //System.out.println(""+numeroRandom);
         
             Pelicula oPelicula = new Pelicula();
             oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
@@ -273,82 +279,90 @@ public class AgregarPrestamo extends javax.swing.JFrame {
         
             JOptionPane.showMessageDialog(this, "Complete los datos");
         
-        } else { 
-        
-            //arrendar pelicula
-            Prestamo oPrestamo = new Prestamo();
-            Pelicula oPelicula = new Pelicula();
+        } else { //arrendar pelicula
             
-            oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
-            
-            oPrestamo = oPrestamo.arrendarPelicula(mapaPrestamos, mapaTrabajadores, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaArriendo.getText(), txtFechaDevolucion.getText());
-            
-            if ( oPrestamo != null ){
-            
-                mapaPrestamos.put(oPrestamo.getIdPrestamo(), oPrestamo);
-            
-                /**for (Map.Entry<Integer, Prestamo> entry : mapaPrestamos.entrySet()) {
-                    Prestamo oPrestamo1 = new Prestamo();
-                    oPrestamo1 = entry.getValue();
-
-                    System.out.println("idPrestamo: "+oPrestamo1.getIdPrestamo());
-                    //System.out.println(""+oPrestamo1.getRutCliente());
-                    //System.out.println(""+oPrestamo1.getRutTrabajador());
+            //HashMap<Integer, Pelicula> mapaArrendarPelis = new HashMap<>();
+            Pelicula oPelicula  = new Pelicula();
+          
+            //preguntar si quiere arrendar mas peliculas
+            int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
+            if( seleccion == 0 ){ //SI DESEA ARRENDAR OTRA PELICULA
                 
+                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
                 
-                }**/
-            
-                JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
+                if ( oPelicula != null ){ 
+                    
+                    mapaArrendarPelis.put(oPelicula.getId(), oPelicula);
                 
-                int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
-        
-                //arrendar otra pelicula
+                } else { 
                 
-                if( seleccion == 0 ) { //SI
-                    System.out.println("ARRENDAR OTRA PELICULA: SIII");
-            
-                    txtRutCliente.setEditable(false);
-                    txtRutTrabajador.setEditable(false);
-                    txtFechaArriendo.setEditable(false);
-                    txtFechaDevolucion.setEditable(false);
-
-                    txtIdPelicula.setText("");
-                    txtNombrePelicula.setText("");
-                    txtPrecioArriendo.setText("");
-            
-                } else if ( seleccion == 1 ) { //NO
-                    System.out.println("ARRENDAR OTRA PELICULA: NOOOO");
-            
-                    //se agrega la pelicula que se arreglo a prestamo
-
-                    txtRutCliente.setEditable(true);
-                    txtFechaArriendo.setEditable(true);
-                    txtFechaDevolucion.setEditable(true);
-
-                    txtRutCliente.setText("");
-                    txtRutTrabajador.setText("");
-                    txtFechaArriendo.setText("");
-                    txtFechaDevolucion.setText("");
-                    txtIdPelicula.setText("");
-                    txtNombrePelicula.setText("");
-                    txtPrecioArriendo.setText("");
-
-                    JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
-            
+                    JOptionPane.showMessageDialog(this, "No se encontro la pelicula");
+                
                 }
             
-            } else if ( oPrestamo == null ){ 
+                txtRutCliente.setEditable(false);
+                txtRutTrabajador.setEditable(false);
+                txtFechaArriendo.setEditable(false);
+                txtFechaDevolucion.setEditable(false);
+
+                txtIdPelicula.setText("");
+                txtNombrePelicula.setText("");
+                txtPrecioArriendo.setText("");
             
-                JOptionPane.showMessageDialog(this, "No se pudo agregar el Prestamo");
+                
+            } 
+            
+            /**for (Map.Entry<Integer, Pelicula> entry : mapaArrendarPelis.entrySet()) {
+                Pelicula oPelicula1 = entry.getValue();
+                
+                System.out.println("ID PELICULA MAPA: "+oPelicula1.getId());
+                System.out.println("NOMBRE PELICULA MAPA: "+oPelicula1.getNombre());
+                
+            }**/
+            
+            if ( seleccion == 1 ) { //NO DESEA ARRENDAR OTRA PELICULA
+                
+                int numeroRandom = (int)(Math.random()*1000000000+1);//numero random creado para usar de ID
+                
+                Prestamo oPrestamo = new Prestamo();
+                System.out.println(""+numeroRandom);
+                
+                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+                
+                oPrestamo = oPrestamo.arrendarPelicula(mapaPrestamos, mapaTrabajadores, mapaArrendarPelis, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaArriendo.getText(), txtFechaDevolucion.getText());
+                
+                oPrestamo.setIdPrestamo(numeroRandom);
+                
+                if ( oPrestamo != null ) {
+                
+                    mapaPrestamos.put(oPrestamo.getIdPrestamo(), oPrestamo);
+                    
+                    System.out.println("idPrestamo: "+oPrestamo.getIdPrestamo());
+                    JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
+                    JOptionPane.showMessageDialog(this, "El ID del prestamo es: "+oPrestamo.getIdPrestamo());
+                
+                }
+
+                txtRutCliente.setEditable(true);
+                txtFechaArriendo.setEditable(true);
+                txtFechaDevolucion.setEditable(true);
+
                 txtRutCliente.setText("");
                 txtRutTrabajador.setText("");
                 txtFechaArriendo.setText("");
                 txtFechaDevolucion.setText("");
+                txtIdPelicula.setText("");
+                txtNombrePelicula.setText("");
+                txtPrecioArriendo.setText("");
             
             }
             
-            
         }
+        
+        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+        
+        /**this.dispose();
+        oMenu.setVisible(true);**/
         
     }//GEN-LAST:event_btnArrendarPeliculaActionPerformed
 
