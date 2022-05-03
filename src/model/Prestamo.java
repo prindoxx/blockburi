@@ -177,4 +177,17 @@ public class Prestamo {
     
     }
     
+    public Prestamo buscarPrestamo(HashMap<Integer, Prestamo> mapaPrestamo, int id ){
+    
+        if ( mapaPrestamo.containsKey(id) ) {
+            //el mapa de prestamos contiene ese prestamo
+            return mapaPrestamo.get(id);
+            
+        } else { 
+            //el mapa no contiene ese prestamo
+            return null;
+        }
+    
+    }
+    
 }
