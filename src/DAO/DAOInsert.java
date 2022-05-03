@@ -20,7 +20,7 @@ public class DAOInsert {
     
     //haciendo conexion a DB, entregando parametros
     public DAOInsert() throws SQLException {
-        oConexion = new Conexion("localhost", "blockbuster", "root", "Jefte01432201");
+        oConexion = new Conexion("localhost", "blockbuster", "root", "1234");
     }
     
     public void agregarPeliculaBD( Pelicula oPelicula ) throws SQLException {

@@ -4,8 +4,11 @@
  */
 package app;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.*;
@@ -79,6 +82,12 @@ public class EliminarPrestamo extends javax.swing.JFrame {
 
         jLabel1.setText("Id Prestamo");
 
+        txtIdPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdPrestamoActionPerformed(evt);
+            }
+        });
+
         btnBuscarPrestamo.setText("Buscar");
         btnBuscarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +145,11 @@ public class EliminarPrestamo extends javax.swing.JFrame {
         });
 
         btnEliminarPrestamo.setText("Eliminar Prestamo");
+        btnEliminarPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPrestamoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -259,30 +273,50 @@ public class EliminarPrestamo extends javax.swing.JFrame {
             Prestamo oPrestamo = new Prestamo();
 
             oPrestamo = mapaPrestamos.get(Integer.parseInt(txtIdPrestamo.getText()));
+            if (oPrestamo == null){
+            
+                JOptionPane.showMessageDialog(this, "Ocurrio un problema");
 
-            txtRutCliente.setText(oPrestamo.getRutCliente());
-            txtRutTrabajador.setText(oPrestamo.getRutTrabajador());
-            txtFechaPrestamo.setText(oPrestamo.getFechaPrestamo());
-            txtFechaEntrega.setText(oPrestamo.getFechaEntrega());
-            txtMontoPagar.setText(String.valueOf(oPrestamo.getMontoAPagar()));
+                txtIdPrestamo.setText("");
+                txtRutCliente.setText("");
+                txtRutTrabajador.setText("");
+                txtFechaPrestamo.setText("");
+                txtFechaEntrega.setText("");
+                txtMontoPagar.setText("");
 
-            HashMap<Integer, Pelicula> mapaPeliculasPrestamos = oPrestamo.mapaPeliculas;
-            String [] datosPeliculas = new String[oModeloTabla.getColumnCount()];
+                for(int i=0; i<tblPeliculas.getRowCount();i++){
+                    oModeloTabla.removeRow(i);
+                    i-=1;
+                }
 
-            for (Map.Entry<Integer, Pelicula> entry : mapaPeliculasPrestamos.entrySet()) {
+            }else{
+                
+                txtRutCliente.setText(oPrestamo.getRutCliente());
+                txtRutTrabajador.setText(oPrestamo.getRutTrabajador());
+                txtFechaPrestamo.setText(oPrestamo.getFechaPrestamo());
+                txtFechaEntrega.setText(oPrestamo.getFechaEntrega());
+                txtMontoPagar.setText(String.valueOf(oPrestamo.getMontoAPagar()));
 
-                Pelicula oPelicula = new Pelicula();
-                oPelicula = entry.getValue();
+                HashMap<Integer, Pelicula> mapaPeliculasPrestamos = oPrestamo.mapaPeliculas;
+                String [] datosPeliculas = new String[oModeloTabla.getColumnCount()];
 
-                datosPeliculas[0] = String.valueOf(oPelicula.getId());
-                datosPeliculas[1] = oPelicula.getNombre();
-                datosPeliculas[2] = String.valueOf(oPelicula.getAnio());
-                datosPeliculas[3] = oPelicula.getDirector();
-                datosPeliculas[4] = oPelicula.getGenero();
+                for (Map.Entry<Integer, Pelicula> entry : mapaPeliculasPrestamos.entrySet()) {
 
-                oModeloTabla.addRow(datosPeliculas);
+                    Pelicula oPelicula = new Pelicula();
+                    oPelicula = entry.getValue();
 
+                    datosPeliculas[0] = String.valueOf(oPelicula.getId());
+                    datosPeliculas[1] = oPelicula.getNombre();
+                    datosPeliculas[2] = String.valueOf(oPelicula.getAnio());
+                    datosPeliculas[3] = oPelicula.getDirector();
+                    datosPeliculas[4] = oPelicula.getGenero();
+
+                    oModeloTabla.addRow(datosPeliculas);
+
+                }
             }
+
+            
 
         }
 
@@ -312,6 +346,43 @@ public class EliminarPrestamo extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnEliminarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoActionPerformed
+        // TODO add your handling code here:
+        if ( txtIdPrestamo.getText().equals("") ) {
+
+            JOptionPane.showMessageDialog(this, "Ingrese ID de Pelicula");
+
+        } else{
+            
+            Prestamo oPrestamo = new Prestamo();
+            
+            try {
+                oPrestamo.eliminarPrestamo(Integer.parseInt(txtIdPrestamo.getText()), mapaPrestamos);
+                
+                txtIdPrestamo.setText("");
+                txtRutCliente.setText("");
+                txtRutTrabajador.setText("");
+                txtFechaPrestamo.setText("");
+                txtFechaEntrega.setText("");
+                txtMontoPagar.setText("");
+                
+                JOptionPane.showMessageDialog(this, "Prestamo eliminado correctamente");
+
+                for(int i=0; i<tblPeliculas.getRowCount();i++){
+                    oModeloTabla.removeRow(i);
+                    i-=1;
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(EliminarPrestamo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnEliminarPrestamoActionPerformed
+
+    private void txtIdPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPrestamoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdPrestamoActionPerformed
 
     /**
      * @param args the command line arguments

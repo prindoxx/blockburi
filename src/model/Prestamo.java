@@ -160,4 +160,21 @@ public class Prestamo {
         
     }
     
+    public Prestamo eliminarPrestamo( int id, HashMap<Integer, Prestamo> mapa ) throws SQLException {
+        //eliminacion por id
+        Prestamo oPrestamo = mapa.get(id);
+        
+        if( oPrestamo == null ){
+            //no existe la pelicula a eliminar
+            return null;
+        } else {
+            //DAODelete oDelete = new DAODelete();
+            //existe la pelicula a eliminar
+            
+            //oDelete.eliminarPelicula(oPelicula);
+            return mapa.remove(id);
+        }
+    
+    }
+    
 }

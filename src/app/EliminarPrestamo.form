@@ -167,6 +167,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtIdPrestamo">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdPrestamoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarPrestamo">
               <Properties>
@@ -272,6 +275,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar Prestamo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarPrestamoActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
