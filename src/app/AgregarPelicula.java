@@ -79,9 +79,9 @@ public class AgregarPelicula extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         txtStock = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        btnAtras = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
+        btnAtrasSinID = new javax.swing.JButton();
+        btnAgregarPeliculaSinID = new javax.swing.JButton();
+        btnLimpiarSinID = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -213,16 +213,26 @@ public class AgregarPelicula extends javax.swing.JFrame {
 
         jLabel15.setText("Stock:");
 
-        btnAtras.setText("Atras");
-
-        jButton1.setText("Agregar Pelicula");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAtrasSinID.setText("Atras");
+        btnAtrasSinID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAtrasSinIDActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setText("Limpiar");
+        btnAgregarPeliculaSinID.setText("Agregar Pelicula");
+        btnAgregarPeliculaSinID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarPeliculaSinIDActionPerformed(evt);
+            }
+        });
+
+        btnLimpiarSinID.setText("Limpiar");
+        btnLimpiarSinID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarSinIDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -250,11 +260,11 @@ public class AgregarPelicula extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(btnAtras)
+                .addComponent(btnAtrasSinID)
                 .addGap(42, 42, 42)
-                .addComponent(jButton1)
+                .addComponent(btnAgregarPeliculaSinID)
                 .addGap(37, 37, 37)
-                .addComponent(btnLimpiar)
+                .addComponent(btnLimpiarSinID)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -294,9 +304,9 @@ public class AgregarPelicula extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAtras)
-                            .addComponent(jButton1)
-                            .addComponent(btnLimpiar))
+                            .addComponent(btnAtrasSinID)
+                            .addComponent(btnAgregarPeliculaSinID)
+                            .addComponent(btnLimpiarSinID))
                         .addGap(33, 33, 33))))
         );
 
@@ -373,9 +383,66 @@ public class AgregarPelicula extends javax.swing.JFrame {
                     
     }//GEN-LAST:event_btnAgregarPeliculaIDActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAgregarPeliculaSinIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaSinIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if( txtNombre.getText().equals("") || txtAnio.getText().equals("") || txtDirector.getText().equals("") || txtGenero.getText().equals("") || txtPrecioVenta.getText().equals("") || txtPrecioArriendo.getText().equals("") || txtStock.getText().equals("")  ) {
+        
+            JOptionPane.showMessageDialog(this, "Ingrese todos los datos");
+        
+        } else {
+        
+            Pelicula oPelicula = new Pelicula();
+            
+            
+            //oPelicula.setId(id);
+            oPelicula.setNombre(txtNombre.getText());
+            oPelicula.setAnio(Integer.parseInt(txtAnio.getText()));
+            oPelicula.setDirector(txtDirector.getText());
+            oPelicula.setGenero(txtGenero.getText());
+            oPelicula.setPrecioVenta(Integer.parseInt(txtPrecioVenta.getText()));
+            oPelicula.setPrecioArriendo(Integer.parseInt(txtPrecioArriendo.getText()));
+            oPelicula.setStock(Integer.parseInt(txtStock.getText()));
+            
+            try {
+                oPelicula.agregarPelicula(oPelicula, mapaPeliculas);
+            } catch (SQLException ex) {
+                Logger.getLogger(AgregarPelicula.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            txtNombre.setText("");
+            txtAnio.setText("");
+            txtDirector.setText("");
+            txtGenero.setText("");
+            txtPrecioVenta.setText("");
+            txtPrecioArriendo.setText("");
+            txtStock.setText("");
+                
+            JOptionPane.showMessageDialog(this, "Pelicula Agregada Correctamente");
+        
+        }
+        
+    }//GEN-LAST:event_btnAgregarPeliculaSinIDActionPerformed
+
+    private void btnAtrasSinIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasSinIDActionPerformed
+        // TODO add your handling code here:
+        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+       
+        this.dispose();
+        oMenu.setVisible(true);
+    }//GEN-LAST:event_btnAtrasSinIDActionPerformed
+
+    private void btnLimpiarSinIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarSinIDActionPerformed
+        // TODO add your handling code here:
+        
+        txtNombre.setText("");
+        txtAnio.setText("");
+        txtDirector.setText("");
+        txtGenero.setText("");
+        txtPrecioVenta.setText("");
+        txtPrecioArriendo.setText("");
+        txtStock.setText("");
+        
+    }//GEN-LAST:event_btnLimpiarSinIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,11 +481,11 @@ public class AgregarPelicula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarPeliculaID;
-    private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnAgregarPeliculaSinID;
     private javax.swing.JButton btnAtrasID;
-    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnAtrasSinID;
     private javax.swing.JButton btnLimpiarID;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLimpiarSinID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

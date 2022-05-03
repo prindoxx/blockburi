@@ -273,11 +273,11 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="btnAtras" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAtrasSinID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAgregarPeliculaSinID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="btnLimpiar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLimpiarSinID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="37" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -327,9 +327,9 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnAtras" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAtrasSinID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAgregarPeliculaSinID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnLimpiarSinID" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
@@ -388,23 +388,29 @@
                 <Property name="text" type="java.lang.String" value="Stock:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnAtras">
+            <Component class="javax.swing.JButton" name="btnAtrasSinID">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Atras"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtrasSinIDActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnAgregarPeliculaSinID">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar Pelicula"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarPeliculaSinIDActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLimpiar">
+            <Component class="javax.swing.JButton" name="btnLimpiarSinID">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Limpiar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarSinIDActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
