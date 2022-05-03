@@ -32,7 +32,7 @@ public class Prestamo {
         this.idPrestamo = idPrestamo;
         this.rutCliente = rutCliente;
         this.rutTrabajador = rutTrabajador;
-        this.mapaPeliculas = mapaPeliculas;
+        mapaPeliculas =  new HashMap<>();
         this.fechaPrestamo = fechaPrestamo;
         this.fechaEntrega = fechaEntrega;
         this.montoAPagar = montoAPagar;

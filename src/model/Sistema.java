@@ -13,14 +13,10 @@ import java.util.*;
 public class Sistema {
     
     public HashMap<Integer, Prestamo> mapaPrestamos;
-    
+   
     public Sistema() {
+        mapaPrestamos = new HashMap<>();
     }
 
-    public Sistema(HashMap<Integer, Prestamo> mapaPrestamos) {
-        this.mapaPrestamos = mapaPrestamos;
-    }
-
-    
     
 }
