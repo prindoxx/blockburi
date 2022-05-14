@@ -572,7 +572,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
             if ( oPelicula != null ) { 
                 //la pelicula existe
                 //oPrestamo.mapaPeliculas.put(oPelicula.getId(), oPelicula);
-                oPrestamo.arrendarPelicula(oPrestamo, oPelicula);
+                oPrestamo.arrendarPelicula(mapaPeliculas, oPrestamo, oPelicula);
                 //oPrestamo.arrendarPelicula(mapaPrestamos, mapaTrabajadores, mapaPeliculas, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaEntrega.getText(), txtFechaEntrega.getText());
                 
                 String [] datosPeliculas = new String[oModeloTabla.getColumnCount()];

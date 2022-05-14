@@ -161,7 +161,7 @@ public class Prestamo {
     }
     
     //arrendar pelicula en modificar prestamo, ya tenemos el prestamo creado, y solo estamos añadiendo una pelicula, por eso necesitamos pocos datos por parametro
-    public Prestamo arrendarPelicula(Prestamo oPrestamoCreado, Pelicula oPeliculaArrendar){
+    public Prestamo arrendarPelicula(HashMap<Integer, Pelicula> mapaPelis, Prestamo oPrestamoCreado, Pelicula oPeliculaArrendar){
     
         int total = 0;
         
@@ -170,6 +170,15 @@ public class Prestamo {
         
         //se suma el precio de la pelicula arrendada
         oPrestamoCreado.setMontoAPagar(oPrestamoCreado.getMontoAPagar() + oPeliculaArrendar.getPrecioArriendo());
+        
+        Pelicula oPelicula = new Pelicula();
+        
+        oPelicula = mapaPelis.get(oPeliculaArrendar.getId());
+        
+        //se modifica el stock de la pelicula, ya que se agrego a un prestamo, en otras palabras se arrendó
+        oPelicula.setStock(oPelicula.getStock()-1);
+        
+        mapaPelis.put(oPelicula.getId(), oPelicula);
         
         return oPrestamoCreado;
     
