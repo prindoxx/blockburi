@@ -563,6 +563,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
             Pelicula oPelicula = new Pelicula();
             Prestamo oPrestamo = new Prestamo();
             
+            //busca la pelicula con el id ingresado en el txt
             oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
             
             //se obtiene el prestamo que se desea modificar 
@@ -570,7 +571,8 @@ public class ModificarPrestamo extends javax.swing.JFrame {
             
             if ( oPelicula != null ) { 
                 //la pelicula existe
-                oPrestamo.mapaPeliculas.put(oPelicula.getId(), oPelicula);
+                //oPrestamo.mapaPeliculas.put(oPelicula.getId(), oPelicula);
+                oPrestamo.arrendarPelicula(oPrestamo, oPelicula);
                 //oPrestamo.arrendarPelicula(mapaPrestamos, mapaTrabajadores, mapaPeliculas, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaEntrega.getText(), txtFechaEntrega.getText());
                 
                 String [] datosPeliculas = new String[oModeloTabla.getColumnCount()];
@@ -590,7 +592,8 @@ public class ModificarPrestamo extends javax.swing.JFrame {
 
                 }
                 
-                JOptionPane.showMessageDialog(this, "Se agrego la Pelicula con id: "+txtIdPelicula.getText()+" en el Prestamo con id: "+txtIdPrestamo.getText());;
+                txtMontoPagar.setText(""+oPrestamo.getMontoAPagar());
+                JOptionPane.showMessageDialog(this, "Se agrego la Pelicula con id: "+txtIdPelicula.getText()+" en el Prestamo con id: "+txtIdPrestamo.getText());
                 txtIdPelicula.setText("");
                 txtNombrePelicula.setText("");
                 txtAnio.setText("");
