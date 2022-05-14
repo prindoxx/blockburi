@@ -92,6 +92,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         btnBuscarPelicula = new javax.swing.JButton();
         btnLimpiarPelicula = new javax.swing.JButton();
         btnAgregarPelicula = new javax.swing.JButton();
+        btnModificarPelicula = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,7 +146,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
             }
         });
 
-        btnModificarPrestamo.setText("Modificar Datos del Prestamo");
+        btnModificarPrestamo.setText("Modificar Prestamo");
         btnModificarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarPrestamoActionPerformed(evt);
@@ -205,6 +206,13 @@ public class ModificarPrestamo extends javax.swing.JFrame {
             }
         });
 
+        btnModificarPelicula.setText("Modificar Pelicula");
+        btnModificarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarPeliculaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -214,67 +222,66 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnAtras)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtFechaPrestamo)
-                            .addComponent(txtIdPrestamo)
-                            .addComponent(txtRutCliente)
-                            .addComponent(txtRutTrabajador)
-                            .addComponent(txtFechaEntrega)
-                            .addComponent(txtMontoPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnBuscarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLimpiarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                        .addComponent(btnModificarPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel8)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addGap(52, 52, 52)
-                                    .addComponent(txtIdPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnAtras)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel16))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGap(20, 20, 20)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtStock, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(txtPrecioArriendo)
-                                    .addComponent(txtPrecioVenta)
-                                    .addComponent(txtGenero)
-                                    .addComponent(txtDirector)
-                                    .addComponent(txtAnio)
-                                    .addComponent(txtNombrePelicula))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnBuscarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLimpiarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(txtFechaPrestamo)
+                                    .addComponent(txtIdPrestamo)
+                                    .addComponent(txtRutCliente)
+                                    .addComponent(txtRutTrabajador)
+                                    .addComponent(txtFechaEntrega)
+                                    .addComponent(txtMontoPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnModificarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnLimpiarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnBuscarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(152, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel8)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jLabel9)
+                                            .addGap(52, 52, 52)
+                                            .addComponent(txtIdPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel15)
+                                            .addComponent(jLabel16))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtStock, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                            .addComponent(txtPrecioArriendo)
+                                            .addComponent(txtPrecioVenta)
+                                            .addComponent(txtGenero)
+                                            .addComponent(txtDirector)
+                                            .addComponent(txtAnio)
+                                            .addComponent(txtNombrePelicula))))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnBuscarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnLimpiarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnModificarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 8, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,32 +291,28 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarPrestamo))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtRutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiarPrestamo))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtRutTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(btnModificarPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtRutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLimpiarPrestamo))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtRutTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(txtFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(txtFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtMontoPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))))
+                    .addComponent(jLabel4)
+                    .addComponent(txtFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(txtFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMontoPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(btnModificarPrestamo))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -349,11 +352,13 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnModificarPelicula))
                     .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addGap(62, 62, 62)
                 .addComponent(btnAtras)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -522,6 +527,15 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 txtPrecioVenta.setText(String.valueOf(oPelicula.getPrecioVenta()));
                 txtPrecioArriendo.setText(String.valueOf(oPelicula.getPrecioArriendo()));
                 txtStock.setText(String.valueOf(oPelicula.getStock()));
+                
+                txtIdPelicula.setEditable(false);
+                txtNombrePelicula.setEditable(true);
+                txtAnio.setEditable(true);
+                txtDirector.setEditable(true);
+                txtGenero.setEditable(true);
+                txtPrecioVenta.setEditable(true);
+                txtPrecioArriendo.setEditable(true);
+                txtStock.setEditable(true);
             
             } else {
                 //la pelicula no existe en el mapa
@@ -543,6 +557,15 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         txtPrecioVenta.setText("");
         txtPrecioArriendo.setText("");
         txtStock.setText("");
+        
+        txtIdPelicula.setEditable(true);
+        txtNombrePelicula.setEditable(false);
+        txtAnio.setEditable(false);
+        txtDirector.setEditable(false);
+        txtGenero.setEditable(false);
+        txtPrecioVenta.setEditable(false);
+        txtPrecioArriendo.setEditable(false);
+        txtStock.setEditable(false);
         
     }//GEN-LAST:event_btnLimpiarPeliculaActionPerformed
 
@@ -594,6 +617,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 
                 txtMontoPagar.setText(""+oPrestamo.getMontoAPagar());
                 JOptionPane.showMessageDialog(this, "Se agrego la Pelicula con id: "+txtIdPelicula.getText()+" en el Prestamo con id: "+txtIdPrestamo.getText());
+                
                 txtIdPelicula.setText("");
                 txtNombrePelicula.setText("");
                 txtAnio.setText("");
@@ -602,6 +626,15 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 txtPrecioVenta.setText("");
                 txtPrecioArriendo.setText("");
                 txtStock.setText("");
+
+                txtIdPelicula.setEditable(true);
+                txtNombrePelicula.setEditable(false);
+                txtAnio.setEditable(false);
+                txtDirector.setEditable(false);
+                txtGenero.setEditable(false);
+                txtPrecioVenta.setEditable(false);
+                txtPrecioArriendo.setEditable(false);
+                txtStock.setEditable(false);
             
             } else {
                 //la pelicula no existe en el mapa
@@ -611,6 +644,80 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnAgregarPeliculaActionPerformed
+
+    private void btnModificarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPeliculaActionPerformed
+        // TODO add your handling code here:
+        
+        if ( txtIdPrestamo.getText().equals("") || txtIdPelicula.getText().equals("") || txtNombrePelicula.getText().equals("") || txtAnio.getText().equals("") || txtDirector.getText().equals("") || txtGenero.getText().equals("") || txtPrecioVenta.getText().equals("") || txtPrecioArriendo.getText().equals("") || txtStock.getText().equals("")  ) { 
+        
+            JOptionPane.showMessageDialog(this, "Ingrese todos los datos");
+        
+        } else { 
+            
+            for(int i=0; i<tblPeliculas.getRowCount();i++){
+                oModeloTabla.removeRow(i);
+                i-=1;
+            }
+            
+            Pelicula oPelicula = new Pelicula();
+            Prestamo oPrestamo = new Prestamo();
+            
+            oPrestamo = mapaPrestamos.get(Integer.parseInt(txtIdPrestamo.getText() ) );
+            
+            oPelicula.setId(Integer.parseInt(txtIdPelicula.getText()));
+            oPelicula.setNombre(txtNombrePelicula.getText());
+            oPelicula.setAnio(Integer.parseInt(txtAnio.getText()));
+            oPelicula.setDirector(txtDirector.getText());
+            oPelicula.setGenero(txtGenero.getText());
+            oPelicula.setPrecioVenta(Integer.parseInt(txtPrecioVenta.getText()));
+            oPelicula.setPrecioArriendo(Integer.parseInt(txtPrecioArriendo.getText()));
+            oPelicula.setStock(Integer.parseInt(txtStock.getText()));
+            
+            //se sobre escribe la pelicula con el id, en el espacio de la pelicula antigua, por lo cual se podria decir que se sobreescribio
+            mapaPeliculas.put(oPelicula.getId(), oPelicula);
+            
+            HashMap<Integer, Pelicula> mapaPeliculasPrestamos = oPrestamo.mapaPeliculas;
+            String [] datosPeliculas = new String[oModeloTabla.getColumnCount()];
+
+            for (Map.Entry<Integer, Pelicula> entry : mapaPeliculasPrestamos.entrySet()) {
+
+                Pelicula oPelicula1, oPelicula2 = new Pelicula();
+                oPelicula1 = entry.getValue();
+                oPelicula2 = oPelicula2.buscarPelicula(mapaPeliculas, oPelicula1.getId());
+
+                datosPeliculas[0] = String.valueOf(oPelicula2.getId());
+                datosPeliculas[1] = oPelicula2.getNombre();
+                datosPeliculas[2] = String.valueOf(oPelicula2.getAnio());
+                datosPeliculas[3] = oPelicula2.getDirector();
+                datosPeliculas[4] = oPelicula2.getGenero();
+
+                oModeloTabla.addRow(datosPeliculas);
+
+            }
+            
+            JOptionPane.showMessageDialog(this, "La pelicula se modificó correctamente");
+            
+            txtIdPelicula.setText("");
+            txtNombrePelicula.setText("");
+            txtAnio.setText("");
+            txtDirector.setText("");
+            txtGenero.setText("");
+            txtPrecioVenta.setText("");
+            txtPrecioArriendo.setText("");
+            txtStock.setText("");
+
+            txtIdPelicula.setEditable(true);
+            txtNombrePelicula.setEditable(false);
+            txtAnio.setEditable(false);
+            txtDirector.setEditable(false);
+            txtGenero.setEditable(false);
+            txtPrecioVenta.setEditable(false);
+            txtPrecioArriendo.setEditable(false);
+            txtStock.setEditable(false);
+            
+        }
+        
+    }//GEN-LAST:event_btnModificarPeliculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -654,6 +761,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscarPrestamo;
     private javax.swing.JButton btnLimpiarPelicula;
     private javax.swing.JButton btnLimpiarPrestamo;
+    private javax.swing.JButton btnModificarPelicula;
     private javax.swing.JButton btnModificarPrestamo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

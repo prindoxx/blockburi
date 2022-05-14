@@ -72,16 +72,18 @@ public class MostrarPrestamo extends javax.swing.JFrame {
             
             for (Map.Entry<Integer, Pelicula> entry1 : oPrestamo.mapaPeliculas.entrySet()) {
                 
-                Pelicula oPelicula = new Pelicula();
+                Pelicula oPelicula, oPelicula1 = new Pelicula();
                 
                 oPelicula = entry1.getValue();
                 
+                oPelicula1 = oPelicula1.buscarPelicula(mapaPeliculas, oPelicula.getId());
+                
                 datosPeliculas[0] = String.valueOf(oPrestamo.getIdPrestamo());
-                datosPeliculas[1] = String.valueOf(oPelicula.getId());
-                datosPeliculas[2] = oPelicula.getNombre();
-                datosPeliculas[3] = String.valueOf(oPelicula.getAnio());
-                datosPeliculas[4] = oPelicula.getDirector();
-                datosPeliculas[5] = oPelicula.getGenero();
+                datosPeliculas[1] = String.valueOf(oPelicula1.getId());
+                datosPeliculas[2] = oPelicula1.getNombre();
+                datosPeliculas[3] = String.valueOf(oPelicula1.getAnio());
+                datosPeliculas[4] = oPelicula1.getDirector();
+                datosPeliculas[5] = oPelicula1.getGenero();
                 
                 oModeloTablaPelicula.addRow(datosPeliculas);
                 
