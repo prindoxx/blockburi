@@ -93,6 +93,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         btnLimpiarPelicula = new javax.swing.JButton();
         btnAgregarPelicula = new javax.swing.JButton();
         btnModificarPelicula = new javax.swing.JButton();
+        btnEliminarPelicula = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -213,6 +214,13 @@ public class ModificarPrestamo extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarPelicula.setText("Eliminar Pelicula de Prestamo");
+        btnEliminarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPeliculaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -279,7 +287,8 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                                     .addComponent(btnBuscarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnLimpiarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnModificarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(btnModificarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnEliminarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 8, Short.MAX_VALUE))))
         );
@@ -337,7 +346,8 @@ public class ModificarPrestamo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(btnEliminarPelicula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -719,6 +729,73 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnModificarPeliculaActionPerformed
 
+    private void btnEliminarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPeliculaActionPerformed
+        // TODO add your handling code here:
+        
+        if( txtIdPelicula.getText().equals("") || txtIdPrestamo.getText().equals("") ) {
+        
+            JOptionPane.showMessageDialog(this, "Ingrese todos los datos");
+        
+        } else {
+            
+            for(int i=0; i<tblPeliculas.getRowCount();i++){
+                oModeloTabla.removeRow(i);
+                i-=1;
+            }
+        
+            Pelicula oPelicula = new Pelicula();
+            Prestamo oPrestamo = new Prestamo();
+            
+            oPrestamo = mapaPrestamos.get(Integer.parseInt(txtIdPrestamo.getText()));
+            oPelicula = oPrestamo.mapaPeliculas.get(Integer.parseInt(txtIdPelicula.getText()));
+            
+            if ( oPelicula != null ) { //la pelicula a eliminar se encuentra en el prestamo
+            
+                oPrestamo.mapaPeliculas.remove(oPelicula.getId());//removemos la pelicula del mapa de peliculas de prestamo
+                oPelicula.setStock(oPelicula.getStock()+1);//le subimos 1 al stock porque la eliminamos del prestamo
+                mapaPeliculas.put(oPelicula.getId(), oPelicula);//actualizamos la info de la pelicula en el mapa de peliculas
+            
+            }
+            
+            String [] datosPeliculas = new String[oModeloTabla.getColumnCount()];
+
+            for (Map.Entry<Integer, Pelicula> entry : oPrestamo.mapaPeliculas.entrySet()) {
+
+                Pelicula oPelicula1 = new Pelicula();
+                oPelicula1 = entry.getValue();
+
+                datosPeliculas[0] = String.valueOf(oPelicula1.getId());
+                datosPeliculas[1] = oPelicula1.getNombre();
+                datosPeliculas[2] = String.valueOf(oPelicula1.getAnio());
+                datosPeliculas[3] = oPelicula1.getDirector();
+                datosPeliculas[4] = oPelicula1.getGenero();
+
+                oModeloTabla.addRow(datosPeliculas);
+
+            }
+            
+            txtIdPelicula.setText("");
+            txtNombrePelicula.setText("");
+            txtAnio.setText("");
+            txtDirector.setText("");
+            txtGenero.setText("");
+            txtPrecioVenta.setText("");
+            txtPrecioArriendo.setText("");
+            txtStock.setText("");
+
+            txtIdPelicula.setEditable(true);
+            txtNombrePelicula.setEditable(false);
+            txtAnio.setEditable(false);
+            txtDirector.setEditable(false);
+            txtGenero.setEditable(false);
+            txtPrecioVenta.setEditable(false);
+            txtPrecioArriendo.setEditable(false);
+            txtStock.setEditable(false);
+
+        }
+        
+    }//GEN-LAST:event_btnEliminarPeliculaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -759,6 +836,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnBuscarPelicula;
     private javax.swing.JButton btnBuscarPrestamo;
+    private javax.swing.JButton btnEliminarPelicula;
     private javax.swing.JButton btnLimpiarPelicula;
     private javax.swing.JButton btnLimpiarPrestamo;
     private javax.swing.JButton btnModificarPelicula;
