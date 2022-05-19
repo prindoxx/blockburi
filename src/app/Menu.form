@@ -55,18 +55,20 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="75" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="btnPrestamo" max="32767" attributes="0"/>
-                      <Component id="btnAgregarPelicula" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnEliminarPelicula" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnBuscarPrestamo" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnMostrarPelicula" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnMostrarPrestamo" alignment="1" pref="140" max="32767" attributes="0"/>
-                      <Component id="btnCerrarSesion" max="32767" attributes="0"/>
-                      <Component id="btnReporte" max="32767" attributes="0"/>
-                      <Component id="btnEliminarPrestamo" max="32767" attributes="0"/>
-                      <Component id="btnModificarPrestamo" max="32767" attributes="0"/>
+                      <Component id="btnVenta" pref="140" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnPrestamo" max="32767" attributes="0"/>
+                          <Component id="btnAgregarPelicula" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnEliminarPelicula" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnMostrarPrestamo" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnMostrarPelicula" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnMostrarSistema" alignment="1" pref="140" max="32767" attributes="0"/>
+                          <Component id="btnCerrarSesion" max="32767" attributes="0"/>
+                          <Component id="btnReporte" max="32767" attributes="0"/>
+                          <Component id="btnEliminarPrestamo" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -76,24 +78,24 @@
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="btnPrestamo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnModificarPrestamo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnBuscarPrestamo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnMostrarPrestamo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnEliminarPrestamo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="17" max="32767" attributes="0"/>
                   <Component id="btnAgregarPelicula" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnMostrarPelicula" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="btnEliminarPelicula" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnEliminarPrestamo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="btnMostrarPrestamo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnMostrarPelicula" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnMostrarSistema" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnReporte" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btnVenta" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="11" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -131,12 +133,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarPeliculaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnBuscarPrestamo">
+        <Component class="javax.swing.JButton" name="btnMostrarPrestamo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Buscar Prestamo"/>
+            <Property name="text" type="java.lang.String" value="Mostrar Prestamo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarPrestamoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarPrestamoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCerrarSesion">
@@ -147,12 +149,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarSesionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnMostrarPrestamo">
+        <Component class="javax.swing.JButton" name="btnMostrarSistema">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mostrar Prestamos"/>
+            <Property name="text" type="java.lang.String" value="Mostrar Sistema"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarPrestamoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarSistemaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnReporte">
@@ -171,12 +173,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarPrestamoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnModificarPrestamo">
+        <Component class="javax.swing.JButton" name="btnVenta">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modificar Prestamo"/>
+            <Property name="text" type="java.lang.String" value="Venta Pelicula"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarPrestamoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVentaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

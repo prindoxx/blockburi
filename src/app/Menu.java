@@ -50,12 +50,12 @@ public class Menu extends javax.swing.JFrame {
         btnAgregarPelicula = new javax.swing.JButton();
         btnEliminarPelicula = new javax.swing.JButton();
         btnMostrarPelicula = new javax.swing.JButton();
-        btnBuscarPrestamo = new javax.swing.JButton();
-        btnCerrarSesion = new javax.swing.JButton();
         btnMostrarPrestamo = new javax.swing.JButton();
+        btnCerrarSesion = new javax.swing.JButton();
+        btnMostrarSistema = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
         btnEliminarPrestamo = new javax.swing.JButton();
-        btnModificarPrestamo = new javax.swing.JButton();
+        btnVenta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,10 +89,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnBuscarPrestamo.setText("Buscar Prestamo");
-        btnBuscarPrestamo.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarPrestamo.setText("Mostrar Prestamo");
+        btnMostrarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarPrestamoActionPerformed(evt);
+                btnMostrarPrestamoActionPerformed(evt);
             }
         });
 
@@ -103,10 +103,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnMostrarPrestamo.setText("Mostrar Prestamos");
-        btnMostrarPrestamo.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarSistema.setText("Mostrar Sistema");
+        btnMostrarSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarPrestamoActionPerformed(evt);
+                btnMostrarSistemaActionPerformed(evt);
             }
         });
 
@@ -124,10 +124,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnModificarPrestamo.setText("Modificar Prestamo");
-        btnModificarPrestamo.addActionListener(new java.awt.event.ActionListener() {
+        btnVenta.setText("Venta Pelicula");
+        btnVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarPrestamoActionPerformed(evt);
+                btnVentaActionPerformed(evt);
             }
         });
 
@@ -138,17 +138,18 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(75, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEliminarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEliminarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModificarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(75, 75, 75))
+                    .addComponent(btnVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMostrarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMostrarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMostrarSistema, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                        .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(72, 72, 72))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,24 +157,24 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(btnPrestamo)
                 .addGap(18, 18, 18)
-                .addComponent(btnModificarPrestamo)
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscarPrestamo)
-                .addGap(18, 18, 18)
-                .addComponent(btnMostrarPrestamo)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminarPrestamo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(btnAgregarPelicula)
-                .addGap(18, 18, 18)
-                .addComponent(btnMostrarPelicula)
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminarPelicula)
                 .addGap(18, 18, 18)
+                .addComponent(btnEliminarPrestamo)
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrarPrestamo)
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrarPelicula)
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrarSistema)
+                .addGap(18, 18, 18)
                 .addComponent(btnReporte)
-                .addGap(58, 58, 58)
+                .addGap(18, 18, 18)
+                .addComponent(btnVenta)
+                .addGap(18, 18, 18)
                 .addComponent(btnCerrarSesion)
-                .addContainerGap())
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -237,15 +238,15 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEliminarPeliculaActionPerformed
 
-    private void btnBuscarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPrestamoActionPerformed
+    private void btnMostrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPrestamoActionPerformed
         // TODO add your handling code here:
         
-        BuscarPrestamo oVerPrestamo = new BuscarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+        MostrarPrestamo oVerPrestamo = new MostrarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         
         this.dispose();
         oVerPrestamo.setVisible(true);
         
-    }//GEN-LAST:event_btnBuscarPrestamoActionPerformed
+    }//GEN-LAST:event_btnMostrarPrestamoActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         // TODO add your handling code here:
@@ -260,14 +261,14 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnReporteActionPerformed
 
-    private void btnMostrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPrestamoActionPerformed
+    private void btnMostrarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarSistemaActionPerformed
         // TODO add your handling code here:
-        MostrarPrestamo oMostrarSistema = new MostrarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+        MostrarSistema oMostrarSistema = new MostrarSistema(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
         
         this.dispose();
         oMostrarSistema.setVisible(true);
         
-    }//GEN-LAST:event_btnMostrarPrestamoActionPerformed
+    }//GEN-LAST:event_btnMostrarSistemaActionPerformed
 
     private void btnEliminarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoActionPerformed
         // TODO add your handling code here:
@@ -279,13 +280,12 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEliminarPrestamoActionPerformed
 
-    private void btnModificarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPrestamoActionPerformed
-        // TODO add your handling code here:
-        ModificarPrestamo oModificarPrestamo = new ModificarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
-        
+    private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
+            // TODO add your handling code here:
         this.dispose();
-        oModificarPrestamo.setVisible(true);
-    }//GEN-LAST:event_btnModificarPrestamoActionPerformed
+        VentaPelicula oVentaPelicula = new VentaPelicula(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+        oVentaPelicula.setVisible(true);
+    }//GEN-LAST:event_btnVentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,15 +324,15 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarPelicula;
-    private javax.swing.JButton btnBuscarPrestamo;
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnEliminarPelicula;
     private javax.swing.JButton btnEliminarPrestamo;
-    private javax.swing.JButton btnModificarPrestamo;
     private javax.swing.JButton btnMostrarPelicula;
     private javax.swing.JButton btnMostrarPrestamo;
+    private javax.swing.JButton btnMostrarSistema;
     private javax.swing.JButton btnPrestamo;
     private javax.swing.JButton btnReporte;
+    private javax.swing.JButton btnVenta;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
