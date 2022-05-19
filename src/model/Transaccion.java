@@ -64,26 +64,10 @@ public abstract class Transaccion implements InformacionVenta {
         this.montoAPagar = montoAPagar;
     }
     
-    public HashMap<Integer, Pelicula> llenaMapaPeliculasPrestamo ( int idPrestamo, HashMap<Integer, Pelicula> mapa ) throws SQLException{
-    
-        HashMap<Integer, Pelicula> mapaPeliculas = new HashMap<>();
-        Pelicula oPelicula = new Pelicula();
-        ArrayList<Integer> listaIdPeliculas = new ArrayList<>();
-        DAOSelect oSelect = new DAOSelect();
-        
-        listaIdPeliculas = oSelect.llenarMapaPrestamoPelicula(idPrestamo);
-        
-        for ( int i=0; i < listaIdPeliculas.size() ; i++  ) {
-        
-            oPelicula = oPelicula.buscarPelicula(mapa, listaIdPeliculas.get(i));
-            mapaPeliculas.put(listaIdPeliculas.get(i), oPelicula);
-            
-        }
-        
-        return mapaPeliculas;
-    
-    }
+    public abstract HashMap<Integer, Pelicula> llenaMapaPeliculasTransaccion ( int idPrestamo, HashMap<Integer, Pelicula> mapa ) throws SQLException;
     
     @Override
-    public abstract void infoVenta();
+    public void infoVenta(){
+    
+    };
 }

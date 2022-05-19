@@ -25,10 +25,10 @@ public class Prestamo extends Transaccion{
     }
 
     public Prestamo(String fechaPrestamo, String fechaEntrega, int idPrestamo, String rutCliente, String rutTrabajador, HashMap<Integer, Pelicula> mapaPeliculas, int montoAPagar) {
-        super(idPrestamo, rutCliente, rutTrabajador, montoAPagar);
+        super(idPrestamo, rutCliente, rutTrabajador, montoAPagar, mapaPeliculas);
         this.fechaPrestamo = fechaPrestamo;
         this.fechaEntrega = fechaEntrega;
-        mapaPeliculas =  new HashMap<>();
+        
     }
 
     public String getFechaPrestamo() {
@@ -47,6 +47,26 @@ public class Prestamo extends Transaccion{
         this.fechaEntrega = fechaEntrega;
     }
 
+    @Override
+    public HashMap<Integer, Pelicula> llenaMapaPeliculasTransaccion ( int idPrestamo, HashMap<Integer, Pelicula> mapa ) throws SQLException{
+    
+        HashMap<Integer, Pelicula> mapaPeliculas = new HashMap<>();
+        Pelicula oPelicula = new Pelicula();
+        ArrayList<Integer> listaIdPeliculas = new ArrayList<>();
+        DAOSelect oSelect = new DAOSelect();
+        
+        listaIdPeliculas = oSelect.llenarMapaPrestamoPelicula(idPrestamo);
+        
+        for ( int i=0; i < listaIdPeliculas.size() ; i++  ) {
+        
+            oPelicula = oPelicula.buscarPelicula(mapa, listaIdPeliculas.get(i));
+            mapaPeliculas.put(listaIdPeliculas.get(i), oPelicula);
+            
+        }
+        
+        return mapaPeliculas;
+    
+    }
     
     public Prestamo arrendarPelicula(HashMap<Integer, Prestamo> mapaPrestamos, HashMap<String, Trabajador> mapaTrabajadores, HashMap<Integer, Pelicula> mapaArrendarPelis, Pelicula oPeliculaArrendar, String rutTrabajador, String rutCliente, String fechaAr, String fechaDev ) {
     

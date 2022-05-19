@@ -20,7 +20,7 @@ public class DAODelete {
     
     //haciendo conexion a DB, entregando parametros
     public DAODelete() throws SQLException {
-        oConexion = new Conexion("localhost", "blockbuster", "root", "Jefte01432201");
+        oConexion = new Conexion("localhost", "blockbuster", "root", "1234");
     }
     
     public void eliminarPelicula( Pelicula oPelicula ) throws SQLException {

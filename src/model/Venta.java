@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -18,7 +19,7 @@ public class Venta extends Transaccion{
     }
 
     public Venta(String fechaVenta, int idPrestamo, String rutCliente, String rutTrabajador, HashMap<Integer, Pelicula> mapaPeliculas, int montoAPagar) {
-        super(idPrestamo, rutCliente, rutTrabajador, montoAPagar);
+        super(idPrestamo, rutCliente, rutTrabajador, montoAPagar, mapaPeliculas);
         this.fechaVenta = fechaVenta;
     }
 
@@ -30,10 +31,14 @@ public class Venta extends Transaccion{
         this.fechaVenta = fechaVenta;
     }
     
+
+    @Override
+    public HashMap<Integer, Pelicula> llenaMapaPeliculasTransaccion(int idPrestamo, HashMap<Integer, Pelicula> mapa) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     @Override
     public void infoVenta() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
 }

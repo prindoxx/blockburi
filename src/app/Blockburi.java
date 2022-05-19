@@ -43,7 +43,7 @@ public class Blockburi {
             System.out.println(""+oPrestamo.getMontoAPagar());**/
             
             //SE LLENAN LOS PRESTAMOS CON LAS PELICULAS
-            oPrestamo.mapaPeliculas = oPrestamo.llenaMapaPeliculasPrestamo(oPrestamo.getIdPrestamo(), mapaPeliculas);
+            oPrestamo.mapaPeliculas = oPrestamo.llenaMapaPeliculasTransaccion(oPrestamo.getIdPrestamo(), mapaPeliculas);
             
         }
         

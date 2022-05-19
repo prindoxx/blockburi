@@ -56,17 +56,15 @@
                   <EmptySpace pref="75" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="btnVenta" pref="140" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnPrestamo" max="32767" attributes="0"/>
-                          <Component id="btnAgregarPelicula" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnEliminarPelicula" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnMostrarPrestamo" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnMostrarPelicula" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnMostrarSistema" alignment="1" pref="140" max="32767" attributes="0"/>
-                          <Component id="btnCerrarSesion" max="32767" attributes="0"/>
-                          <Component id="btnReporte" max="32767" attributes="0"/>
-                          <Component id="btnEliminarPrestamo" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnPrestamo" max="32767" attributes="0"/>
+                      <Component id="btnAgregarPelicula" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnEliminarPelicula" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnMostrarPrestamo" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnMostrarPelicula" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnMostrarSistema" alignment="1" pref="140" max="32767" attributes="0"/>
+                      <Component id="btnCerrarSesion" max="32767" attributes="0"/>
+                      <Component id="btnReporte" max="32767" attributes="0"/>
+                      <Component id="btnEliminarPrestamo" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               </Group>
