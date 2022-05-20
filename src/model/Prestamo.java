@@ -47,7 +47,7 @@ public class Prestamo extends Transaccion{
         this.fechaEntrega = fechaEntrega;
     }
 
-    @Override
+    
     public HashMap<Integer, Pelicula> llenaMapaPeliculasTransaccion ( int idPrestamo, HashMap<Integer, Pelicula> mapa ) throws SQLException{
     
         HashMap<Integer, Pelicula> mapaPeliculas = new HashMap<>();
@@ -68,7 +68,7 @@ public class Prestamo extends Transaccion{
     
     }
     
-    public Prestamo arrendarPelicula(HashMap<Integer, Prestamo> mapaPrestamos, HashMap<String, Trabajador> mapaTrabajadores, HashMap<Integer, Pelicula> mapaArrendarPelis, Pelicula oPeliculaArrendar, String rutTrabajador, String rutCliente, String fechaAr, String fechaDev ) {
+    public Prestamo arrendarPelicula(HashMap<Integer, Prestamo> mapaPrestamos, HashMap<String, Trabajador> mapaTrabajadores, HashMap<Integer, Pelicula> mapaArrendarPelis, HashMap<Integer, Venta> mapaVentas, Pelicula oPeliculaArrendar, String rutTrabajador, String rutCliente, String fechaAr, String fechaDev ) {
     
         Trabajador oTrabajador = new Trabajador();
         oTrabajador.setRut(rutTrabajador);
@@ -113,7 +113,7 @@ public class Prestamo extends Transaccion{
             
         } else {
             //el trabajador no existe en el mapa
-            AgregarPrestamo oAgregarPrestamo = new AgregarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores);
+            AgregarPrestamo oAgregarPrestamo = new AgregarPrestamo(mapaPeliculas, mapaPrestamos, mapaTrabajadores,mapaVentas);
             JOptionPane.showMessageDialog(oAgregarPrestamo, "Ingrese un RUT de Trabajador valido");
             return null;
         }
@@ -177,6 +177,11 @@ public class Prestamo extends Transaccion{
     
     @Override
     public void infoVenta() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mostrarPeliculaPorConsola(Pelicula pelicula) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

@@ -32,8 +32,8 @@ public class Venta extends Transaccion{
     }
     
 
-    @Override
-    public HashMap<Integer, Pelicula> llenaMapaPeliculasTransaccion(int idPrestamo, HashMap<Integer, Pelicula> mapa) throws SQLException {
+
+    public Transaccion arrendarPelicula() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
@@ -41,4 +41,11 @@ public class Venta extends Transaccion{
     public void infoVenta() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public void mostrarPeliculaPorConsola(Pelicula pelicula) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
 }

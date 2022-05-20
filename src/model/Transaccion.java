@@ -64,7 +64,7 @@ public abstract class Transaccion implements InformacionVenta {
         this.montoAPagar = montoAPagar;
     }
     
-    public abstract HashMap<Integer, Pelicula> llenaMapaPeliculasTransaccion ( int idPrestamo, HashMap<Integer, Pelicula> mapa ) throws SQLException;
+    public abstract void mostrarPeliculaPorConsola(Pelicula pelicula);
     
     @Override
     public void infoVenta(){
