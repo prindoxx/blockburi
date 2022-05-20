@@ -227,10 +227,10 @@ public class MostrarPrestamo extends javax.swing.JFrame {
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         // TODO add your handling code here:
-        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
+        MenuPrestamos oMenuPrestamos = new MenuPrestamos(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
         
         this.dispose();
-        oMenu.setVisible(true);
+        oMenuPrestamos.setVisible(true);
         
     }//GEN-LAST:event_btnAtrasActionPerformed
 

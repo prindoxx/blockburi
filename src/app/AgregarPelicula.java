@@ -337,7 +337,7 @@ public class AgregarPelicula extends javax.swing.JFrame {
 
     private void btnAtrasIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasIDActionPerformed
         // TODO add your handling code here:
-        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
+        MenuPeliculas oMenu = new MenuPeliculas(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
         
         this.dispose();
         oMenu.setVisible(true);
@@ -430,7 +430,7 @@ public class AgregarPelicula extends javax.swing.JFrame {
 
     private void btnAtrasSinIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasSinIDActionPerformed
         // TODO add your handling code here:
-        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
+        MenuPeliculas oMenu = new MenuPeliculas(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
        
         this.dispose();
         oMenu.setVisible(true);

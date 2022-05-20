@@ -297,7 +297,7 @@ public class EliminarPelicula extends javax.swing.JFrame {
     private void btnAtrasIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasIdActionPerformed
         // TODO add your handling code here:
 
-        Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
+        MenuPeliculas oMenu = new MenuPeliculas(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
 
         this.dispose();
         oMenu.setVisible(true);

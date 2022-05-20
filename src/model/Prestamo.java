@@ -175,6 +175,31 @@ public class Prestamo extends Transaccion{
     
     }
     
+      public Pelicula mostrarPeliculaAnio (HashMap<Integer, Prestamo> mapaPrestamo){//funcion para la parte ep4.1
+        Prestamo oPrestamo = new Prestamo();
+        Pelicula oPelicula = new Pelicula();
+        Pelicula oPelicula1 = new Pelicula();
+        int aux = 0;
+        for (Map.Entry<Integer, Prestamo> entry : mapaPrestamo.entrySet()) {
+            
+            oPrestamo = entry.getValue();
+            
+            for (Map.Entry<Integer, Pelicula> entry1 : oPrestamo.mapaPeliculas.entrySet()){
+                
+                oPelicula = entry1.getValue();
+                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, oPelicula.getId());
+                
+                if(oPelicula.getAnio() > aux){
+                    aux = oPelicula.getAnio();
+                    oPelicula1 = oPelicula;
+                }
+                
+            }
+           
+        }
+        return oPelicula1;
+    }
+    
     @Override
     public void infoVenta() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
