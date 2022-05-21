@@ -237,6 +237,7 @@ public class VentaPelicula extends javax.swing.JFrame {
             Pelicula oPelicula = new Pelicula();
             oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
             
+            
             if ( oPelicula != null ) {
             
                 txtNombre.setText(oPelicula.getNombre());
@@ -310,9 +311,11 @@ public class VentaPelicula extends javax.swing.JFrame {
                 if ( oVenta != null ) {
                 
                     mapaVentas.put(oVenta.getIdPrestamo(), oVenta);
+                    oVenta.mostrarPeliculasPorConsola(oVenta.mapaPeliculas);
                     
                     System.out.println("idVenta: "+oVenta.getIdPrestamo());
                     JOptionPane.showMessageDialog(this, "La pelicula se compró correctamente");
+                    JOptionPane.showMessageDialog(this, "Usted compró un total de "+oVenta.infoTransaccion(oVenta.mapaPeliculas));
                     JOptionPane.showMessageDialog(this, "El ID de la venta es: "+oVenta.getIdPrestamo());
                 
                 }

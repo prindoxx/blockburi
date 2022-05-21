@@ -8,6 +8,6 @@ package interfaces;
  *
  * @author the_i
  */
-public interface InformacionVenta {
-    public void infoVenta();
+public interface InformacionTransaccion {
+    public int infoTransaccion();
 }

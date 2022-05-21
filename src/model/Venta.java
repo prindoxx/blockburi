@@ -84,14 +84,29 @@ public class Venta extends Transaccion{
         
         
     }
+    
+
     @Override
-    public void infoVenta() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void mostrarPeliculasPorConsola(HashMap<Integer, Pelicula> mapaPeliculas) {
+        HashMap<Integer, Pelicula> mapaPeliculasPrestamos = mapaPeliculas;
+        int cont=1;
+        System.out.println("Datos de las peliculas:\n");
+        for (Map.Entry<Integer, Pelicula> entry : mapaPeliculasPrestamos.entrySet()) {
+
+            Pelicula pelicula = new Pelicula();
+            pelicula = entry.getValue();
+
+            System.out.println("Pelicula n°"+cont+"\n Id: "+pelicula.getId()+"\n Nombre: "+pelicula.getNombre()+"\n Año: "+pelicula.getAnio()+"\n Director: "+pelicula.getDirector()+"\n Genero: "+pelicula.getGenero()+"\n Precio venta: "+pelicula.getPrecioVenta()+"\n Stock: "+pelicula.getStock()+"\n\n");
+
+
+        }
     }
 
     @Override
-    public void mostrarPeliculaPorConsola(Pelicula pelicula) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int infoTransaccion() {
+        
+        return 0;
+        
     }
 
     

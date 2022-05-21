@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author Pablo
  */
-public class Pelicula {
+public class Pelicula{
     
     private int id;
     private String nombre;

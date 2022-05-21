@@ -4,8 +4,8 @@
  */
 package model;
 
-import interfaces.InformacionVenta;
 import DAO.DAOSelect;
+import interfaces.InformacionTransaccion;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -13,7 +13,7 @@ import java.util.*;
  *
  * @author the_i
  */
-public abstract class Transaccion implements InformacionVenta {
+public abstract class Transaccion implements InformacionTransaccion {
    
     private int idPrestamo;
     private String rutCliente;
@@ -64,10 +64,16 @@ public abstract class Transaccion implements InformacionVenta {
         this.montoAPagar = montoAPagar;
     }
     
-    public abstract void mostrarPeliculaPorConsola(Pelicula pelicula);
+    public abstract void mostrarPeliculasPorConsola(HashMap<Integer, Pelicula> mapaPeliculas);
     
-    @Override
-    public void infoVenta(){
-    
-    };
+    public int infoTransaccion(HashMap<Integer, Pelicula> mapaPeliculas) {
+        HashMap<Integer, Pelicula> mapaDePeliculas = mapaPeliculas;
+        int cont=0;
+        for (Map.Entry<Integer, Pelicula> entry : mapaDePeliculas.entrySet()){
+            Pelicula pelicula = new Pelicula();
+            pelicula = entry.getValue();
+            if (pelicula != null) cont++;
+        }
+        return cont;
+    }
 }
