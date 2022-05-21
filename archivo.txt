@@ -119,6 +119,16 @@ Precio Arriendo: 6500
 Stock: 13
 
 ---------------------------------
+id: 123124
+nombre: sexo
+Año: 2500
+Director: cualquierwea
+Genero: siporfavor
+Precio venta: 2000000000
+Precio Arriendo: 1
+Stock: 420
+
+---------------------------------
 id: 234567891
 nombre: El padrino
 Año: 1972
