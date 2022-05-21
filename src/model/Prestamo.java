@@ -239,10 +239,32 @@ public class Prestamo extends Transaccion{
         }
     }
      
-   /* public Prestamo buscarPrestamoPorPelicula (Pelicula oPelicula){
+    public ArrayList buscarPrestamoPorPelicula (HashMap<Integer, Prestamo> mapaPrestamo, Pelicula oPelicula){
         
-        return oPrestamo;
-    }*/
+        ArrayList prestamosArrayList = new ArrayList();
+        HashMap<Integer, Prestamo> mapaPrestamo1 = new HashMap<>();
+        mapaPrestamo1 = mapaPrestamo;
+        
+        for (Map.Entry<Integer, Prestamo> entry : mapaPrestamo1.entrySet()) {
+            //accedemos al mapa de préstamos
+            Prestamo oPrestamo = new Prestamo();
+            oPrestamo = entry.getValue();
+            
+            for (Map.Entry<Integer, Pelicula> entry1 : oPrestamo.mapaPeliculas.entrySet()){
+                //accedemos al mapa de peliculas que está dentro de cada préstamo
+                Pelicula oPelicula1 = new Pelicula();
+                oPelicula1 = entry1.getValue();
+                
+                if(oPelicula1 == oPelicula){
+                    //guardamos la película en un arraylist por si hay varias películas con el mismo género
+                    prestamosArrayList.add(oPrestamo);
+                }
+                
+            }
+           
+        }
+        return prestamosArrayList;
+    }
     
     @Override
     public void infoVenta() {

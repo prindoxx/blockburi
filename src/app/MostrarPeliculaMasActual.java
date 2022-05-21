@@ -49,7 +49,7 @@ public class MostrarPeliculaMasActual extends javax.swing.JFrame {
         
         
         oPelicula = oPrestamo.mostrarPeliculaAnio(mapaPrestamos);
-        
+        ArrayList prestamosArrayList = oPrestamo.buscarPrestamoPorPelicula(mapaPrestamos, oPelicula);
                 
         
         datosPeliculas[0] = String.valueOf(oPelicula.getId());
@@ -60,7 +60,17 @@ public class MostrarPeliculaMasActual extends javax.swing.JFrame {
         datosPeliculas[5] = String.valueOf(oPelicula.getPrecioVenta());
         datosPeliculas[6] = String.valueOf(oPelicula.getPrecioArriendo());
         datosPeliculas[7] = String.valueOf(oPelicula.getStock());
-        //datosPeliculas[8] = String.valueOf(oPrestamo.getIdPrestamo());
+        
+        for (int j = 0; j < prestamosArrayList.size(); j++) {
+                    oPrestamo = (Prestamo)prestamosArrayList.get(j);
+                    
+                    if(((Pelicula)oPrestamo.mapaPeliculas.get(j)) != oPelicula){
+                        datosPeliculas[8] = String.valueOf(oPrestamo.getIdPrestamo());
+                        break;
+                    }
+                    
+                }
+        
             
         oModeloTabla.addRow(datosPeliculas);
         
@@ -126,10 +136,10 @@ public class MostrarPeliculaMasActual extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAtras)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

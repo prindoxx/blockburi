@@ -105,7 +105,7 @@ public class BuscarPeliculaPorGenero extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btnAtras)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -172,7 +172,8 @@ public class BuscarPeliculaPorGenero extends javax.swing.JFrame {
             for (int i = 0; i < peliculaArrayList.size(); i++) {
                 
                 Pelicula oPelicula = (Pelicula)peliculaArrayList.get(i);
-
+                ArrayList prestamosArrayList = oPrestamo.buscarPrestamoPorPelicula(mapaPrestamos, oPelicula);
+                
                 datosPeliculas[0] = String.valueOf(oPelicula.getId());
                 datosPeliculas[1] = oPelicula.getNombre();
                 datosPeliculas[2] = String.valueOf(oPelicula.getAnio());
@@ -181,7 +182,17 @@ public class BuscarPeliculaPorGenero extends javax.swing.JFrame {
                 datosPeliculas[5] = String.valueOf(oPelicula.getPrecioVenta());
                 datosPeliculas[6] = String.valueOf(oPelicula.getPrecioArriendo());
                 datosPeliculas[7] = String.valueOf(oPelicula.getStock());
-
+                
+                for (int j = 0; j < prestamosArrayList.size(); j++) {
+                    oPrestamo = (Prestamo)prestamosArrayList.get(j);
+                    
+                    if(((Pelicula)oPrestamo.mapaPeliculas.get(j)) != oPelicula){
+                        datosPeliculas[8] = String.valueOf(oPrestamo.getIdPrestamo());
+                      
+                    }
+                    
+                }
+                
                 oModeloTabla.addRow(datosPeliculas);
                 
             }
