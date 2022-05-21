@@ -15,6 +15,11 @@ Nombre: Pablo
 Usuario: 4alhabla
 Contraseña: 1234
 ---------------------------------
+Rut: -8
+Nombre: jefte
+Usuario: 12
+Contraseña: 12
+---------------------------------
 Rut: 12345678-9
 Nombre: Jefte
 Usuario: iroh
@@ -119,6 +124,16 @@ Precio Arriendo: 6500
 Stock: 13
 
 ---------------------------------
+id: 3
+nombre: jefte
+Año: 1992
+Director: jefteponce
+Genero: terror
+Precio venta: 9990
+Precio Arriendo: 5990
+Stock: 64
+
+---------------------------------
 id: 234567891
 nombre: El padrino
 Año: 1972
@@ -129,13 +144,34 @@ Precio Arriendo: 8750
 Stock: 4
 
 ---------------------------------
-id: 345678912
-nombre: El padrino II
-Año: 1974
-Director: Francis Ford Coppola
-Genero: Drama
-Precio venta: 24990
-Precio Arriendo: 9990
-Stock: 2
+Ventas del día
+
+Prestamos
+
+Id Venta: 892021037
+Rut Cliente: 1
+Rut Trabajador: 1
+Fecha Venta: 1
+Monto a Pagar: 100008
+
+Peliculas:
+Película n°1
+id: 1
+nombre: pelicula
+Año: 2000
+Director: pucv
+Genero: terror
+Precio venta: 99999
+Precio Arriendo: 99999
+
+Película n°2
+id: 2
+nombre: prueba
+Año: 10
+Director: yo el
+Genero: terror
+Precio venta: 10
+Precio Arriendo: 9
 
 ---------------------------------
+
