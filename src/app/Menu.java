@@ -162,7 +162,6 @@ public class Menu extends javax.swing.JFrame {
             archivo.escribirMapaTrabajadores(mapaTrabajadores);
             archivo.escribirMapaPrestamos(mapaPrestamos);
             archivo.escribirMapaPeliculas(mapaPeliculas);
-            archivo.escribirMapaVentas(mapaVentas);
             
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);

@@ -109,54 +109,6 @@ public class ArchivosTexto {
         System.out.println("Texto añadido");
     }
     
-    public void escribirMapaVentas(HashMap mapaVentas) throws IOException{
-        
-        int cont=1;
-        FileWriter escritura = new FileWriter("archivo.txt", true);
-        
-        HashMap<Integer, Venta> mapaVentas2 = new HashMap<>();
-        mapaVentas2 = mapaVentas;
-        
-        escritura.write("Ventas del día\n\n");
-        for( Map.Entry<Integer, Venta> entry : mapaVentas2.entrySet() ){
-            
-            Venta oVenta = new Venta();
-            oVenta = entry.getValue();
-            //escritura.write("Venta\n\n");
-            escritura.write("Id Venta: "+oVenta.getIdPrestamo()+"\n");
-            escritura.write("Rut Cliente: "+oVenta.getRutCliente()+"\n");
-            escritura.write("Rut Trabajador: "+oVenta.getRutTrabajador()+"\n");
-            escritura.write("Fecha Venta: "+oVenta.getFechaVenta()+"\n");
-            escritura.write("Monto a Pagar: "+oVenta.getMontoAPagar()+"\n\n");
-            escritura.write("Peliculas:\n");
-            HashMap<Integer, Pelicula> mapaPeliculaPre = oVenta.mapaPeliculas;
-            cont=1;
-            
-            for (Map.Entry<Integer, Pelicula> entry1 : mapaPeliculaPre.entrySet()) {
-                
-                Pelicula oPelicula = new Pelicula();
-                oPelicula = entry1.getValue();
-                
-                escritura.write("Película n°"+cont+"\n");
-                escritura.write("id: "+oPelicula.getId()+"\n");
-                escritura.write("nombre: "+oPelicula.getNombre()+"\n");
-                escritura.write("Año: "+oPelicula.getAnio()+"\n");
-                escritura.write("Director: "+oPelicula.getDirector()+"\n");
-                escritura.write("Genero: "+oPelicula.getGenero()+"\n");
-                escritura.write("Precio venta: "+oPelicula.getPrecioVenta()+"\n");
-                escritura.write("Precio Arriendo: "+oPelicula.getPrecioArriendo()+"\n\n");
-                cont++;
-                
-            }
-            
-            escritura.write("---------------------------------\n");
-        }
-        escritura.write("\n");
-        
-        escritura.close();
-        System.out.println("Texto añadido");
-    }
-    
     public void escribirMapaPeliculas(HashMap mapaPeliculas) throws IOException{
         
         FileWriter escritura = new FileWriter("archivo.txt", true);

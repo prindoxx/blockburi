@@ -21,8 +21,6 @@ public class VentaPelicula extends javax.swing.JFrame {
     HashMap<Integer, Prestamo> mapaPrestamos;
     HashMap<String, Trabajador> mapaTrabajadores;
     HashMap<Integer, Venta> mapaVentas;
-    
-    HashMap<Integer, Pelicula> mapaComprarPelis = new HashMap<>();
     /**
      * Creates new form VentaPelicula
      */
@@ -64,10 +62,6 @@ public class VentaPelicula extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         btnComprar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtRutCliente = new javax.swing.JTextField();
-        txtRutTrabajador = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,53 +97,36 @@ public class VentaPelicula extends javax.swing.JFrame {
         });
 
         btnComprar.setText("Comprar");
-        btnComprar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComprarActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Rut Trabajador:");
-
-        jLabel6.setText("Rut Cliente:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(btnAtras)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnComprar)
-                .addGap(88, 88, 88))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                            .addComponent(txtNombre)
-                            .addComponent(txtPrecioVenta)
-                            .addComponent(txtRutCliente)
-                            .addComponent(txtRutTrabajador))
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar)
-                            .addComponent(btnLimpiar))
-                        .addGap(37, 37, 37))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtFechaVenta)
-                        .addGap(150, 150, 150))))
+                    .addComponent(txtIdPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(txtNombre)
+                    .addComponent(txtPrecioVenta)
+                    .addComponent(txtFechaVenta))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnLimpiar))
+                .addGap(37, 37, 37))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(btnAtras)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnComprar)
+                .addGap(88, 88, 88))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,19 +153,11 @@ public class VentaPelicula extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(btnLimpiar)))
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtRutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtRutTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                    .addComponent(txtFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtras)
                     .addComponent(btnComprar))
@@ -256,81 +225,6 @@ public class VentaPelicula extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
-        // TODO add your handling code here:
-        if ( txtIdPelicula.getText().equals("") || txtRutCliente.getText().equals("") || txtRutTrabajador.getText().equals("") || txtFechaVenta.getText().equals("") )  { 
-        
-            JOptionPane.showMessageDialog(this, "Complete los datos");
-        
-        }else{
-            //Comprar pelicula
-            
-            //HashMap<Integer, Pelicula> mapaArrendarPelis = new HashMap<>();
-            Pelicula oPelicula  = new Pelicula();
-          
-            //preguntar si quiere Comprar mas peliculas
-            int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula al carrito de la compra?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
-            if( seleccion == 0 ){ //SI DESEA ARRENDAR OTRA PELICULA
-                
-                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
-                
-                if ( oPelicula != null ){ 
-                    
-                    mapaComprarPelis.put(oPelicula.getId(), oPelicula);
-                
-                } else { 
-                
-                    JOptionPane.showMessageDialog(this, "No se encontro la pelicula");
-                
-                }
-            
-                txtRutCliente.setEditable(false);
-                txtRutTrabajador.setEditable(false);
-                txtFechaVenta.setEditable(false);
-
-                txtIdPelicula.setText("");
-                txtNombre.setText("");
-                txtPrecioVenta.setText("");
-            
-            } 
-            
-            if ( seleccion == 1 ) { //NO DESEA ARRENDAR OTRA PELICULA
-                
-                int numeroRandom = (int)(Math.random()*1000000000+1);//numero random creado para usar de ID
-                
-                Venta oVenta = new Venta();
-                System.out.println(""+numeroRandom);
-                
-                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
-                
-                oVenta = oVenta.comprarPelicula(mapaPrestamos, mapaTrabajadores, mapaComprarPelis,mapaVentas, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaVenta.getText());
-                
-                oVenta.setIdPrestamo(numeroRandom);
-                
-                if ( oVenta != null ) {
-                
-                    mapaVentas.put(oVenta.getIdPrestamo(), oVenta);
-                    
-                    System.out.println("idVenta: "+oVenta.getIdPrestamo());
-                    JOptionPane.showMessageDialog(this, "La pelicula se compró correctamente");
-                    JOptionPane.showMessageDialog(this, "El ID de la venta es: "+oVenta.getIdPrestamo());
-                
-                }
-
-                txtRutCliente.setEditable(true);
-                txtFechaVenta.setEditable(true);
-
-                txtRutCliente.setText("");
-                txtRutTrabajador.setText("");
-                txtFechaVenta.setText("");
-                txtIdPelicula.setText("");
-                txtNombre.setText("");
-                txtPrecioVenta.setText("");
-            
-            }
-        }
-    }//GEN-LAST:event_btnComprarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -374,15 +268,11 @@ public class VentaPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtFechaVenta;
     private javax.swing.JTextField txtIdPelicula;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecioVenta;
-    private javax.swing.JTextField txtRutCliente;
-    private javax.swing.JTextField txtRutTrabajador;
     // End of variables declaration//GEN-END:variables
 }
