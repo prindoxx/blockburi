@@ -5,6 +5,7 @@
 package model;
 
 import app.VentaPelicula;
+import interfaces.InformacionTransaccion;
 import java.sql.SQLException;
 import java.util.*;
 import javax.swing.JOptionPane;
@@ -13,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author the_i
  */
-public class Venta extends Transaccion{
+public class Venta extends Transaccion implements InformacionTransaccion{
 
     private String fechaVenta;
 
@@ -102,12 +103,17 @@ public class Venta extends Transaccion{
         }
     }
 
-    @Override
-    public int infoTransaccion() {
-        
-        return 0;
-        
+    public int infoTransaccion(HashMap<Integer, Pelicula> mapaPeliculas) {
+        HashMap<Integer, Pelicula> mapaDePeliculas = mapaPeliculas;
+        int cont=0;
+        for (Map.Entry<Integer, Pelicula> entry : mapaDePeliculas.entrySet()){
+            Pelicula pelicula = new Pelicula();
+            pelicula = entry.getValue();
+            if (pelicula != null) cont++;
+        }
+        return cont;
     }
 
+    
     
 }

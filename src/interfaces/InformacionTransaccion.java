@@ -4,10 +4,13 @@
  */
 package interfaces;
 
+import java.util.HashMap;
+import model.Pelicula;
+
 /**
  *
  * @author the_i
  */
 public interface InformacionTransaccion {
-    public int infoTransaccion();
+    public int infoTransaccion(HashMap<Integer, Pelicula> mapaPeliculas);
 }

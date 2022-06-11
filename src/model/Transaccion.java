@@ -13,7 +13,7 @@ import java.util.*;
  *
  * @author the_i
  */
-public abstract class Transaccion implements InformacionTransaccion {
+public abstract class Transaccion{
    
     private int idPrestamo;
     private String rutCliente;
@@ -66,14 +66,5 @@ public abstract class Transaccion implements InformacionTransaccion {
     
     public abstract void mostrarPeliculasPorConsola(HashMap<Integer, Pelicula> mapaPeliculas);
     
-    public int infoTransaccion(HashMap<Integer, Pelicula> mapaPeliculas) {
-        HashMap<Integer, Pelicula> mapaDePeliculas = mapaPeliculas;
-        int cont=0;
-        for (Map.Entry<Integer, Pelicula> entry : mapaDePeliculas.entrySet()){
-            Pelicula pelicula = new Pelicula();
-            pelicula = entry.getValue();
-            if (pelicula != null) cont++;
-        }
-        return cont;
-    }
+    
 }

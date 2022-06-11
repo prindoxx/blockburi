@@ -345,7 +345,7 @@ public class AgregarPrestamo extends javax.swing.JFrame {
                     
                     System.out.println("idPrestamo: "+oPrestamo.getIdPrestamo());
                     JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");
-                    JOptionPane.showMessageDialog(this, "Usted compró un total de "+oPrestamo.infoTransaccion(oPrestamo.mapaPeliculas));
+                    JOptionPane.showMessageDialog(this, "Usted compró un total de "+oPrestamo.infoTransaccion(oPrestamo.mapaPeliculas)+"peliculas");
                     JOptionPane.showMessageDialog(this, "El ID del prestamo es: "+oPrestamo.getIdPrestamo());
                 
                 }

@@ -315,7 +315,7 @@ public class VentaPelicula extends javax.swing.JFrame {
                     
                     System.out.println("idVenta: "+oVenta.getIdPrestamo());
                     JOptionPane.showMessageDialog(this, "La pelicula se compró correctamente");
-                    JOptionPane.showMessageDialog(this, "Usted compró un total de "+oVenta.infoTransaccion(oVenta.mapaPeliculas));
+                    JOptionPane.showMessageDialog(this, "Usted compró un total de "+oVenta.infoTransaccion(oVenta.mapaPeliculas)+"peliculas");
                     JOptionPane.showMessageDialog(this, "El ID de la venta es: "+oVenta.getIdPrestamo());
                 
                 }

@@ -7,6 +7,7 @@ package model;
 import java.util.*;
 import DAO.*;
 import app.AgregarPrestamo;
+import interfaces.InformacionTransaccion;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author Pablo
  */
-public class Prestamo extends Transaccion{
+public class Prestamo extends Transaccion implements InformacionTransaccion{
     
     
     //private ArrayList<Pelicula> listIdPeliculas;//cambiar a oPelicula
@@ -265,12 +266,6 @@ public class Prestamo extends Transaccion{
         }
         return prestamosArrayList;
     }
-    
-    public int infoTransaccion() {
-        
-        return 0;
-        
-    }
 
     @Override
     public void mostrarPeliculasPorConsola(HashMap<Integer, Pelicula> mapaPeliculas) {
@@ -290,6 +285,17 @@ public class Prestamo extends Transaccion{
 
     public ArrayList buscarPeliculaPorGenero(HashMap<Integer, Prestamo> mapaPrestamos) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int infoTransaccion(HashMap<Integer, Pelicula> mapaPeliculas) {
+        HashMap<Integer, Pelicula> mapaDePeliculas = mapaPeliculas;
+        int cont=0;
+        for (Map.Entry<Integer, Pelicula> entry : mapaDePeliculas.entrySet()){
+            Pelicula pelicula = new Pelicula();
+            pelicula = entry.getValue();
+            if (pelicula != null) cont++;
+        }
+        return cont;
     }
     
 }
