@@ -355,6 +355,7 @@ public class AgregarPelicula extends javax.swing.JFrame {
         } else {
         
             Pelicula oPelicula = new Pelicula();
+            Sistema oSistema = new Sistema();
             
             id = Integer.parseInt(txtId.getText());
             
@@ -368,7 +369,7 @@ public class AgregarPelicula extends javax.swing.JFrame {
             oPelicula.setStock(Integer.parseInt(txtStockID.getText()));
             
             try {
-                oPelicula.agregarPelicula(id, oPelicula, mapaPeliculas);
+                oSistema.agregarPelicula(id, oPelicula, mapaPeliculas);
             } catch (SQLException ex) {
                 Logger.getLogger(AgregarPelicula.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -397,6 +398,7 @@ public class AgregarPelicula extends javax.swing.JFrame {
         } else {
         
             Pelicula oPelicula = new Pelicula();
+            Sistema oSistema = new Sistema();
             
             
             //oPelicula.setId(id);
@@ -409,7 +411,7 @@ public class AgregarPelicula extends javax.swing.JFrame {
             oPelicula.setStock(Integer.parseInt(txtStock.getText()));
             
             try {
-                oPelicula.agregarPelicula(oPelicula, mapaPeliculas);
+                oSistema.agregarPelicula(oPelicula, mapaPeliculas);
             } catch (SQLException ex) {
                 Logger.getLogger(AgregarPelicula.class.getName()).log(Level.SEVERE, null, ex);
             }

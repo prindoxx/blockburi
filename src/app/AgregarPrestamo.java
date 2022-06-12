@@ -235,7 +235,8 @@ public class AgregarPrestamo extends javax.swing.JFrame {
             //System.out.println(""+numeroRandom);
         
             Pelicula oPelicula = new Pelicula();
-            oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+            Sistema oSistema = new Sistema();
+            oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
             
             if ( oPelicula != null ) {
             
@@ -288,12 +289,13 @@ public class AgregarPrestamo extends javax.swing.JFrame {
             
             //HashMap<Integer, Pelicula> mapaArrendarPelis = new HashMap<>();
             Pelicula oPelicula  = new Pelicula();
+            Sistema oSistema = new Sistema();
           
             //preguntar si quiere arrendar mas peliculas
             int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
             if( seleccion == 0 ){ //SI DESEA ARRENDAR OTRA PELICULA
                 
-                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+                oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
                 
                 if ( oPelicula != null ){ 
                     
@@ -332,7 +334,7 @@ public class AgregarPrestamo extends javax.swing.JFrame {
                 Prestamo oPrestamo = new Prestamo();
                 System.out.println(""+numeroRandom);
                 
-                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+                oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
                 
                 oPrestamo = oPrestamo.arrendarPelicula(mapaPrestamos, mapaTrabajadores, mapaArrendarPelis,mapaVentas, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaArriendo.getText(), txtFechaDevolucion.getText());
                 

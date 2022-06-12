@@ -251,8 +251,9 @@ public class EliminarPelicula extends javax.swing.JFrame {
             //System.out.println(""+Integer.parseInt(txtId.getText()));
 
             Pelicula oPelicula = new Pelicula();
+            Sistema oSistema = new Sistema();
 
-            oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtId.getText()));
+            oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtId.getText()));
 
             if ( oPelicula != null ) {
 
@@ -316,8 +317,9 @@ public class EliminarPelicula extends javax.swing.JFrame {
             try {
 
                 Pelicula oPelicula = new Pelicula();
+                Sistema oSistema = new Sistema();
                 
-                oPelicula.eliminarPelicula(Integer.parseInt(txtId.getText()), mapaPeliculas);
+                oSistema.eliminarPelicula(Integer.parseInt(txtId.getText()), mapaPeliculas);
 
                 txtId.setText("");
                 txtNombreID.setText("");

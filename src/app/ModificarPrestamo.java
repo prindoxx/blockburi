@@ -528,8 +528,9 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         } else { 
         
             Pelicula oPelicula = new Pelicula();
+            Sistema oSistema = new Sistema();
             
-            oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+            oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
             
             if ( oPelicula != null ) { 
                 //la pelicula existe
@@ -599,12 +600,13 @@ public class ModificarPrestamo extends javax.swing.JFrame {
         
             Pelicula oPelicula = new Pelicula();
             Prestamo oPrestamo = new Prestamo();
+            Sistema oSistema = new Sistema();
             
             //busca la pelicula con el id ingresado en el txt
-            oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+            oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
             
             //se obtiene el prestamo que se desea modificar 
-            oPrestamo = oPrestamo.buscarPrestamo(mapaPrestamos, Integer.parseInt(txtIdPrestamo.getText()));
+            oPrestamo = oSistema.buscarPrestamo(mapaPrestamos, Integer.parseInt(txtIdPrestamo.getText()));
             
             if ( oPelicula != null ) { 
                 //la pelicula existe
@@ -675,6 +677,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
             
             Pelicula oPelicula = new Pelicula();
             Prestamo oPrestamo = new Prestamo();
+            Sistema oSistema = new Sistema();
             
             oPrestamo = mapaPrestamos.get(Integer.parseInt(txtIdPrestamo.getText() ) );
             
@@ -697,7 +700,7 @@ public class ModificarPrestamo extends javax.swing.JFrame {
 
                 Pelicula oPelicula1, oPelicula2 = new Pelicula();
                 oPelicula1 = entry.getValue();
-                oPelicula2 = oPelicula2.buscarPelicula(mapaPeliculas, oPelicula1.getId());
+                oPelicula2 = oSistema.buscarPelicula(mapaPeliculas, oPelicula1.getId());
 
                 datosPeliculas[0] = String.valueOf(oPelicula2.getId());
                 datosPeliculas[1] = oPelicula2.getNombre();

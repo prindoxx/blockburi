@@ -163,6 +163,7 @@ public class BuscarPeliculaPorGenero extends javax.swing.JFrame {
             
             //Pelicula oPelicula = new Pelicula();
             Prestamo oPrestamo = new Prestamo();
+            Sistema oSistema = new Sistema();
             ArrayList peliculaArrayList = new ArrayList();
 
 
@@ -172,7 +173,7 @@ public class BuscarPeliculaPorGenero extends javax.swing.JFrame {
             for (int i = 0; i < peliculaArrayList.size(); i++) {
                 
                 Pelicula oPelicula = (Pelicula)peliculaArrayList.get(i);
-                ArrayList prestamosArrayList = oPrestamo.buscarPrestamoPorPelicula(mapaPrestamos, oPelicula);
+                ArrayList prestamosArrayList = oSistema.buscarPrestamoPorPelicula(mapaPrestamos, oPelicula);
                 
                 datosPeliculas[0] = String.valueOf(oPelicula.getId());
                 datosPeliculas[1] = oPelicula.getNombre();

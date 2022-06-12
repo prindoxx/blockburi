@@ -46,10 +46,11 @@ public class MostrarPeliculaMasActual extends javax.swing.JFrame {
         
         Pelicula oPelicula = new Pelicula();
         Prestamo oPrestamo = new Prestamo();
+        Sistema oSistema = new Sistema();
         
         
         oPelicula = oPrestamo.mostrarPeliculaAnio(mapaPrestamos);
-        ArrayList prestamosArrayList = oPrestamo.buscarPrestamoPorPelicula(mapaPrestamos, oPelicula);
+        ArrayList prestamosArrayList = oSistema.buscarPrestamoPorPelicula(mapaPrestamos, oPelicula);
                 
         
         datosPeliculas[0] = String.valueOf(oPelicula.getId());

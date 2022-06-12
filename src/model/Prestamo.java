@@ -55,12 +55,13 @@ public class Prestamo extends Transaccion implements InformacionTransaccion{
         Pelicula oPelicula = new Pelicula();
         ArrayList<Integer> listaIdPeliculas = new ArrayList<>();
         DAOSelect oSelect = new DAOSelect();
+        Sistema oSistema = new Sistema();
         
         listaIdPeliculas = oSelect.llenarMapaPrestamoPelicula(idPrestamo);
         
         for ( int i=0; i < listaIdPeliculas.size() ; i++  ) {
         
-            oPelicula = oPelicula.buscarPelicula(mapa, listaIdPeliculas.get(i));
+            oPelicula = oSistema.buscarPelicula(mapa, listaIdPeliculas.get(i));
             mapaPeliculas.put(listaIdPeliculas.get(i), oPelicula);
             
         }
@@ -72,8 +73,9 @@ public class Prestamo extends Transaccion implements InformacionTransaccion{
     public Prestamo arrendarPelicula(HashMap<Integer, Prestamo> mapaPrestamos, HashMap<String, Trabajador> mapaTrabajadores, HashMap<Integer, Pelicula> mapaArrendarPelis, HashMap<Integer, Venta> mapaVentas, Pelicula oPeliculaArrendar, String rutTrabajador, String rutCliente, String fechaAr, String fechaDev ) {
     
         Trabajador oTrabajador = new Trabajador();
+        Sistema oSistema = new Sistema();
         oTrabajador.setRut(rutTrabajador);
-        if ( oTrabajador.trabajadorExiste(mapaTrabajadores, rutTrabajador) ){
+        if ( oSistema.trabajadorExiste(mapaTrabajadores, rutTrabajador) ){
             //existe el trabajador en el mapa
             
             //int numeroRandom = (int)(Math.random()*1000000000+1);//numero random creado para usar de ID
@@ -145,7 +147,7 @@ public class Prestamo extends Transaccion implements InformacionTransaccion{
         return oPrestamoCreado;
     
     }
-    
+    /**
     public Prestamo eliminarPrestamo( int id, HashMap<Integer, Prestamo> mapa ) throws SQLException {
         //eliminacion por id
         Prestamo oPrestamo = mapa.get(id);
@@ -175,7 +177,7 @@ public class Prestamo extends Transaccion implements InformacionTransaccion{
         }
     
     }
-    
+    **/
     public Pelicula mostrarPeliculaAnio (HashMap<Integer, Prestamo> mapaPrestamo){//funcion para la parte ep4.1
          
         Pelicula oPelicula1 = new Pelicula();
@@ -239,7 +241,7 @@ public class Prestamo extends Transaccion implements InformacionTransaccion{
             return peliculasArrayList;
         }
     }
-     
+     /**
     public ArrayList buscarPrestamoPorPelicula (HashMap<Integer, Prestamo> mapaPrestamo, Pelicula oPelicula){
         
         ArrayList prestamosArrayList = new ArrayList();
@@ -266,7 +268,7 @@ public class Prestamo extends Transaccion implements InformacionTransaccion{
         }
         return prestamosArrayList;
     }
-
+**/
     @Override
     public void mostrarPeliculasPorConsola(HashMap<Integer, Pelicula> mapaPeliculas) {
         HashMap<Integer, Pelicula> mapaPeliculasPrestamos = mapaPeliculas;

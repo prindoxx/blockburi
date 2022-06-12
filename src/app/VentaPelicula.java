@@ -6,14 +6,11 @@ package app;
 
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import model.Pelicula;
-import model.Prestamo;
-import model.Trabajador;
-import model.Venta;
+import model.*;
 
 /**
  *
- * @author the_i
+ * @author the_yo_el
  */
 public class VentaPelicula extends javax.swing.JFrame {
     
@@ -235,7 +232,8 @@ public class VentaPelicula extends javax.swing.JFrame {
             
         
             Pelicula oPelicula = new Pelicula();
-            oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+            Sistema oSistema = new Sistema();
+            oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
             
             
             if ( oPelicula != null ) {
@@ -268,12 +266,13 @@ public class VentaPelicula extends javax.swing.JFrame {
             
             //HashMap<Integer, Pelicula> mapaArrendarPelis = new HashMap<>();
             Pelicula oPelicula  = new Pelicula();
+            Sistema oSistema = new Sistema();
           
             //preguntar si quiere Comprar mas peliculas
             int seleccion = JOptionPane.showOptionDialog(this, "¿Desea agregar otra pelicula al carrito de la compra?", "Seleccione opcion", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Sí","No"}, "Sí" );
             if( seleccion == 0 ){ //SI DESEA ARRENDAR OTRA PELICULA
                 
-                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+                oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
                 
                 if ( oPelicula != null ){ 
                     
@@ -302,7 +301,7 @@ public class VentaPelicula extends javax.swing.JFrame {
                 Venta oVenta = new Venta();
                 System.out.println(""+numeroRandom);
                 
-                oPelicula = oPelicula.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
+                oPelicula = oSistema.buscarPelicula(mapaPeliculas, Integer.parseInt(txtIdPelicula.getText()));
                 
                 oVenta = oVenta.comprarPelicula(mapaPrestamos, mapaTrabajadores, mapaComprarPelis,mapaVentas, oPelicula, txtRutTrabajador.getText(), txtRutCliente.getText(), txtFechaVenta.getText());
                 

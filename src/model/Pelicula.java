@@ -107,29 +107,10 @@ public class Pelicula{
         
         /**bd**/
     }
-    
-    public Pelicula buscarPelicula( HashMap<Integer, Pelicula> mapa, int id){
-        //devuelve la pelicula con ese id si se encuentra en el mapa
-        /**mapa**/
-        if ( mapa.containsKey(id) ){
-            //esta la pelicula con ese id en el mapa
-            //System.out.println("La pelicula si esta");
-            /**Pelicula oPelicula = new Pelicula();
-            oPelicula = mapa.get(id);
-            System.out.println(""+oPelicula.getNombre());
-            System.out.println(""+oPelicula.getAnio());
-            System.out.println(""+oPelicula.getDirector());**/
-            return mapa.get(id);
-        } else {
-            //no esta la pelicula en el mapa
-            return null;
-        }
-        
-    }
-    
+    /**
     public Pelicula buscarPelicula( HashMap<Integer, Pelicula> mapa, String nombre){
     
-        /**mapa**/
+        //mapa
         for( HashMap.Entry<Integer, Pelicula> entry : mapa.entrySet() ){
         
             Pelicula oPelicula = entry.getValue();//obtiene el valor de cierta posicion en el mapa
@@ -146,9 +127,31 @@ public class Pelicula{
         
     }
     
+    public Pelicula buscarPelicula( HashMap<Integer, Pelicula> mapa, int id){
+        //devuelve la pelicula con ese id si se encuentra en el mapa
+        //mapa
+        if ( mapa.containsKey(id) ){
+            //esta la pelicula con ese id en el mapa
+            //System.out.println("La pelicula si esta");
+            /**Pelicula oPelicula = new Pelicula();
+            oPelicula = mapa.get(id);
+            System.out.println(""+oPelicula.getNombre());
+            System.out.println(""+oPelicula.getAnio());
+            System.out.println(""+oPelicula.getDirector());**//**
+            return mapa.get(id);
+        } else {
+            //no esta la pelicula en el mapa
+            return null;
+        }
+        
+    }
+    **/
+    
+    /**
     public void agregarPelicula( int id, Pelicula oPeliculaAgregar, HashMap<Integer, Pelicula> mapa) throws SQLException{
         //con id
-        Pelicula oPelicula = buscarPelicula(mapa, id);
+        Sistema oSistema = new Sistema();
+        Pelicula oPelicula = oSistema.buscarPelicula(mapa, id);
        
         if ( oPelicula == null ){
             DAOInsert oDAOInsert = new DAOInsert();
@@ -167,10 +170,12 @@ public class Pelicula{
         }
         
     }
-    
+    **//**
     public void agregarPelicula ( Pelicula oPeliculaAgregar, HashMap<Integer, Pelicula> mapa ) throws SQLException{
         //sin id
-        Pelicula oPelicula = buscarPelicula(mapa, oPeliculaAgregar.getNombre());
+        Sistema oSistema = new Sistema();
+        Pelicula oPelicula = oSistema.buscarPelicula(mapa, oPeliculaAgregar.getNombre());
+        
         
         if ( oPelicula == null ){
             //la pelicula no esta en el mapa de peliculas
@@ -192,10 +197,11 @@ public class Pelicula{
         }
     
     }
-    
+    **//**
     public Pelicula eliminarPelicula( int id, HashMap<Integer, Pelicula> mapa ) throws SQLException {
         //eliminacion por id
-        Pelicula oPelicula = buscarPelicula(mapa, id);
+        Sistema oSistema = new Sistema();
+        Pelicula oPelicula = oSistema.buscarPelicula(mapa, id);
         
         if( oPelicula == null ){
             //no existe la pelicula a eliminar
@@ -209,5 +215,5 @@ public class Pelicula{
         }
     
     }
-    
+    **/
 }

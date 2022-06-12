@@ -37,8 +37,9 @@ public class Venta extends Transaccion implements InformacionTransaccion{
     public Venta comprarPelicula(HashMap<Integer, Prestamo> mapaPrestamos, HashMap<String, Trabajador> mapaTrabajadores, HashMap<Integer, Pelicula> mapaComprarPelis, HashMap<Integer, Venta> mapaVentas, Pelicula oPeliculaArrendar, String rutTrabajador, String rutCliente, String fechaVenta ) {
     
         Trabajador oTrabajador = new Trabajador();
+        Sistema oSistema = new Sistema();
         oTrabajador.setRut(rutTrabajador);
-        if ( oTrabajador.trabajadorExiste(mapaTrabajadores, rutTrabajador) ){
+        if ( oSistema.trabajadorExiste(mapaTrabajadores, rutTrabajador) ){
             //existe el trabajador en el mapa
             
             //int numeroRandom = (int)(Math.random()*1000000000+1);//numero random creado para usar de ID

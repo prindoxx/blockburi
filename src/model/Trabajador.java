@@ -59,7 +59,7 @@ public class Trabajador {
         this.contrasenia = contrasenia;
     }
     
-    
+    /**
     public boolean trabajadorExiste ( HashMap<String, Trabajador> mapaTrabajadores, String rutTrabajador){
         
         if ( mapaTrabajadores.containsKey(rut) ){
@@ -70,5 +70,5 @@ public class Trabajador {
         return false;
         
     }
-    
+    **/
 }

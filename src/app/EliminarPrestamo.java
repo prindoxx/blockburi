@@ -360,9 +360,10 @@ public class EliminarPrestamo extends javax.swing.JFrame {
         } else{
             
             Prestamo oPrestamo = new Prestamo();
+            Sistema oSistema = new Sistema();
             
             try {
-                oPrestamo.eliminarPrestamo(Integer.parseInt(txtIdPrestamo.getText()), mapaPrestamos);
+                oSistema.eliminarPrestamo(Integer.parseInt(txtIdPrestamo.getText()), mapaPrestamos);
                 
                 txtIdPrestamo.setText("");
                 txtRutCliente.setText("");

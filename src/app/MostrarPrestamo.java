@@ -60,6 +60,7 @@ public class MostrarPrestamo extends javax.swing.JFrame {
         for (Map.Entry<Integer, Prestamo> entry : mapaPrestamo.entrySet()) {
             
             Prestamo oPrestamo = new Prestamo();
+            Sistema oSistema = new Sistema();
             
             oPrestamo = entry.getValue();
             
@@ -78,7 +79,7 @@ public class MostrarPrestamo extends javax.swing.JFrame {
                 
                 oPelicula = entry1.getValue();
                 
-                oPelicula1 = oPelicula1.buscarPelicula(mapaPeliculas, oPelicula.getId());
+                oPelicula1 = oSistema.buscarPelicula(mapaPeliculas, oPelicula.getId());
                 
                 datosPeliculas[0] = String.valueOf(oPrestamo.getIdPrestamo());
                 datosPeliculas[1] = String.valueOf(oPelicula1.getId());
