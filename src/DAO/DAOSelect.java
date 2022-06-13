@@ -81,6 +81,33 @@ public class DAOSelect {
     
     }
     
+    public Trabajador inicioSesion(String usuario) throws SQLException {
+    
+        Trabajador oTrabajador;
+        
+        sql = "SELECT * FROM trabajador WHERE usuario= '" + usuario + "'";
+        oConexion.oResultSet = oConexion.ejecutarSelect(sql);
+        System.out.println(sql);
+        
+        if (oConexion.oResultSet.next()) {
+            
+            oTrabajador = new Trabajador();
+            
+            oTrabajador.setRut(oConexion.oResultSet.getString("rut"));
+            oTrabajador.setNombre(oConexion.oResultSet.getString("nombre"));
+            oTrabajador.setUsuario(oConexion.oResultSet.getString("usuario"));
+            oTrabajador.setContrasenia(oConexion.oResultSet.getString("contrasenia"));
+            
+            return oTrabajador;
+            
+        } else {
+        
+            return null;
+            
+        }
+    
+    }
+    
     public Pelicula buscarPelicula (int idPelicula) throws SQLException {
     
         Pelicula oPelicula;

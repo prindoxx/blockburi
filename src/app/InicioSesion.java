@@ -5,6 +5,7 @@
 package app;
 
 import DAO.DAOSelect;
+import controlador.Controlador;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -139,34 +140,48 @@ public class InicioSesion extends javax.swing.JFrame {
             
             Menu oMenu = new Menu(mapaPeliculas, mapaPrestamos, mapaTrabajadores, mapaVentas);
             DAOSelect oDAOSelect = new DAOSelect();
-            
+            Trabajador oTrabajador = new Trabajador();
+            Controlador oControlador = new Controlador();
             String usuario, contra;
             
-            if ( txtUser.getText().equals("") || txtContra.getText().equals("") ){
+            if ( txtUser.getText().equals("")){
             
                 JOptionPane.showMessageDialog(this, "Ingreso Invalido");
             
             } else {
-        
-                Trabajador oTrabajador = new Trabajador();
-                usuario = txtUser.getText();
-                contra = txtContra.getText();
+                if ( txtContra.getText().equals("") ){
+                    usuario = txtUser.getText();
+                    oTrabajador = oControlador.inicioSesion(usuario);
+                    if ( oTrabajador != null ){
 
-                oTrabajador = oDAOSelect.inicioSesion(usuario, contra);
+                        this.dispose();
+                        oMenu.setVisible(true);
 
-                if ( oTrabajador != null ){
-                
-                    this.dispose();
-                    oMenu.setVisible(true);
+                    } else {
 
-                } else {
+                        JOptionPane.showMessageDialog(this, "Datos Incorrectos");
+                        txtUser.setText("");
+                        txtContra.setText("");
 
-                    JOptionPane.showMessageDialog(this, "Datos Incorrectos");
-                    txtUser.setText("");
-                    txtContra.setText("");
+                    }
+                }else{
+                    //oTrabajador = oDAOSelect.inicioSesion(usuario, contra);
+                    usuario = txtUser.getText();
+                    contra = txtContra.getText();
+                    oTrabajador = oControlador.inicioSesion(usuario, contra);
+                    if ( oTrabajador != null ){
 
+                        this.dispose();
+                        oMenu.setVisible(true);
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "Datos Incorrectos");
+                        txtUser.setText("");
+                        txtContra.setText("");
+
+                    }
                 }
-            
             }
 
         } catch (SQLException ex) {

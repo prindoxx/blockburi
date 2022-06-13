@@ -58,14 +58,12 @@
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btnAgregarPrestamo" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnEliminarPrestamo" max="32767" attributes="0"/>
-                          <Component id="btnModificarPrestamo" max="32767" attributes="0"/>
-                          <Component id="btnMostrarPrestamos" max="32767" attributes="0"/>
-                          <Component id="btnMostrarPeliculaMasActual" max="32767" attributes="0"/>
-                          <Component id="btnBuscarPeliculasPorGenero" min="-2" max="-2" attributes="0"/>
-                          <Component id="brnBuscarPrestamo" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnEliminarPrestamo" max="32767" attributes="0"/>
+                      <Component id="btnModificarPrestamo" max="32767" attributes="0"/>
+                      <Component id="btnMostrarPrestamos" max="32767" attributes="0"/>
+                      <Component id="btnMostrarPeliculaMasActual" max="32767" attributes="0"/>
+                      <Component id="btnBuscarPeliculasPorGenero" min="-2" max="-2" attributes="0"/>
+                      <Component id="brnBuscarPrestamo" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>

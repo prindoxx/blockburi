@@ -343,7 +343,7 @@ public class AgregarPrestamo extends javax.swing.JFrame {
                 if ( oPrestamo != null ) {
                 
                     mapaPrestamos.put(oPrestamo.getIdPrestamo(), oPrestamo);
-                    oPrestamo.mostrarPeliculasPorConsola(oPrestamo.mapaPeliculas);
+                    //oPrestamo.mostrarPeliculasPorConsola(oPrestamo.mapaPeliculas);
                     
                     System.out.println("idPrestamo: "+oPrestamo.getIdPrestamo());
                     JOptionPane.showMessageDialog(this, "La pelicula se arrendo correctamente");

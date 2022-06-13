@@ -310,7 +310,7 @@ public class VentaPelicula extends javax.swing.JFrame {
                 if ( oVenta != null ) {
                 
                     mapaVentas.put(oVenta.getIdPrestamo(), oVenta);
-                    oVenta.mostrarPeliculasPorConsola(oVenta.mapaPeliculas);
+                    //oVenta.mostrarPeliculasPorConsola(oVenta.mapaPeliculas);
                     
                     System.out.println("idVenta: "+oVenta.getIdPrestamo());
                     JOptionPane.showMessageDialog(this, "La pelicula se compró correctamente");
