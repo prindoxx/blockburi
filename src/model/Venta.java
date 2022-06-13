@@ -89,19 +89,10 @@ public class Venta extends Transaccion implements InformacionTransaccion{
     
 
     @Override
-    public void mostrarPeliculasPorConsola(HashMap<Integer, Pelicula> mapaPeliculas) {
-        HashMap<Integer, Pelicula> mapaPeliculasPrestamos = mapaPeliculas;
-        int cont=1;
-        System.out.println("Datos de las peliculas:\n");
-        for (Map.Entry<Integer, Pelicula> entry : mapaPeliculasPrestamos.entrySet()) {
-
-            Pelicula pelicula = new Pelicula();
-            pelicula = entry.getValue();
-
-            System.out.println("Pelicula n°"+cont+"\n Id: "+pelicula.getId()+"\n Nombre: "+pelicula.getNombre()+"\n Año: "+pelicula.getAnio()+"\n Director: "+pelicula.getDirector()+"\n Genero: "+pelicula.getGenero()+"\n Precio venta: "+pelicula.getPrecioVenta()+"\n Stock: "+pelicula.getStock()+"\n\n");
-
-
-        }
+    public int mostrarCantidadDeObjetos(HashMap<Integer, Pelicula> mapaPeliculas, HashMap<Integer, Prestamo> mapaPrestamos ) {
+        int cont=0;
+        cont = mapaPeliculas.size();
+        return cont;
     }
 
     public int infoTransaccion(HashMap<Integer, Pelicula> mapaPeliculas) {

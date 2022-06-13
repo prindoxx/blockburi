@@ -64,7 +64,7 @@ public abstract class Transaccion{
         this.montoAPagar = montoAPagar;
     }
     
-    public abstract void mostrarPeliculasPorConsola(HashMap<Integer, Pelicula> mapaPeliculas);
+    public abstract int mostrarCantidadDeObjetos(HashMap<Integer, Pelicula> mapaPeliculas,HashMap<Integer, Prestamo> mapaPrestamos);
     
     
 }

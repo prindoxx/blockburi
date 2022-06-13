@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.*;
 
 /**
@@ -57,6 +58,7 @@ public class MenuPeliculas extends javax.swing.JFrame {
         btnMostrarPelicula = new javax.swing.JButton();
         btnVentaPelicula = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +99,13 @@ public class MenuPeliculas extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cantidad de Peliculas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,7 +121,9 @@ public class MenuPeliculas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAtras)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +137,9 @@ public class MenuPeliculas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnVentaPelicula)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                .addComponent(btnAtras)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAtras)
+                    .addComponent(jButton1))
                 .addGap(27, 27, 27))
         );
 
@@ -188,6 +201,14 @@ public class MenuPeliculas extends javax.swing.JFrame {
         oMenu.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int cont;
+        Venta oVenta = new Venta();
+        cont = oVenta.mostrarCantidadDeObjetos(mapaPeliculas, mapaPrestamos);
+        JOptionPane.showMessageDialog(this, "La cantidad de películas registradas en el programa es de: " + cont +"");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,6 +253,7 @@ public class MenuPeliculas extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarPelicula;
     private javax.swing.JButton btnMostrarPelicula;
     private javax.swing.JButton btnVentaPelicula;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
