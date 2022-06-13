@@ -193,4 +193,68 @@ public class Sistema {
         }
         return prestamosArrayList;
     }
+    
+    public Pelicula mostrarPeliculaAnio (HashMap<Integer, Prestamo> mapaPrestamo){//funcion para la parte ep4.1
+         
+        Pelicula oPelicula1 = new Pelicula();
+        int aux = 0;
+        HashMap<Integer, Prestamo> mapaPrestamo1 = new HashMap<>();
+        mapaPrestamo1 = mapaPrestamo;
+                
+        for (Map.Entry<Integer, Prestamo> entry : mapaPrestamo1.entrySet()) {
+            //accedemos al mapa de prestamos
+            Prestamo oPrestamo = new Prestamo();
+            oPrestamo = entry.getValue();
+            
+            for (Map.Entry<Integer, Pelicula> entry1 : oPrestamo.mapaPeliculas.entrySet()){
+                //accedemos al mapa de peliculas que está dentro de cada prestamo
+                Pelicula oPelicula = new Pelicula();
+                oPelicula = (Pelicula)entry1.getValue();
+                
+                if(oPelicula.getAnio() > aux){
+                    //comparamos cual pelicula tiene el mayor año
+                    aux = oPelicula.getAnio();
+                    oPelicula1 = oPelicula;
+                }
+                
+            }
+           
+        }
+        return oPelicula1;
+        
+    }
+      
+    public ArrayList buscarPeliculaPorGenero (HashMap<Integer, Prestamo> mapaPrestamo, String genero){
+        
+        ArrayList peliculasArrayList = new ArrayList();
+        Pelicula oPelicula1 = new Pelicula();
+        
+        HashMap<Integer, Prestamo> mapaPrestamo1 = new HashMap<>();
+        mapaPrestamo1 = mapaPrestamo;
+                
+        for (Map.Entry<Integer, Prestamo> entry : mapaPrestamo1.entrySet()) {
+            //accedemos al mapa de prestamos
+            Prestamo oPrestamo = new Prestamo();
+            oPrestamo = entry.getValue();
+            
+            for (Map.Entry<Integer, Pelicula> entry1 : oPrestamo.mapaPeliculas.entrySet()){
+                //accedemos al mapa de peliculas que está dentro de cada prestamo
+                Pelicula oPelicula = new Pelicula();
+                oPelicula = entry1.getValue();
+                
+                if((oPelicula.getGenero()).equals(genero)){
+                    //comparamos cual pelicula tiene el mayor año
+                    peliculasArrayList.add(oPelicula);
+                }
+                
+            }
+           
+        }
+        if(peliculasArrayList.isEmpty()){
+            return null;
+        }
+        else{
+            return peliculasArrayList;
+        }
+    }
 }

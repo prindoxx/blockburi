@@ -49,7 +49,7 @@ public class MostrarPeliculaMasActual extends javax.swing.JFrame {
         Sistema oSistema = new Sistema();
         
         
-        oPelicula = oPrestamo.mostrarPeliculaAnio(mapaPrestamos);
+        oPelicula = oSistema.mostrarPeliculaAnio(mapaPrestamos);
         ArrayList prestamosArrayList = oSistema.buscarPrestamoPorPelicula(mapaPrestamos, oPelicula);
                 
         

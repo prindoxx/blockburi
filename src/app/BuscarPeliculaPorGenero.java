@@ -167,7 +167,7 @@ public class BuscarPeliculaPorGenero extends javax.swing.JFrame {
             ArrayList peliculaArrayList = new ArrayList();
 
 
-            peliculaArrayList = oPrestamo.buscarPeliculaPorGenero(mapaPrestamos,txtGenero.getText());
+            peliculaArrayList = oSistema.buscarPeliculaPorGenero(mapaPrestamos,txtGenero.getText());
             String [] datosPeliculas = new String[oModeloTabla.getColumnCount()];
             
             for (int i = 0; i < peliculaArrayList.size(); i++) {

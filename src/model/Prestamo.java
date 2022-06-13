@@ -177,7 +177,7 @@ public class Prestamo extends Transaccion implements InformacionTransaccion{
         }
     
     }
-    **/
+    **//**
     public Pelicula mostrarPeliculaAnio (HashMap<Integer, Prestamo> mapaPrestamo){//funcion para la parte ep4.1
          
         Pelicula oPelicula1 = new Pelicula();
@@ -240,7 +240,7 @@ public class Prestamo extends Transaccion implements InformacionTransaccion{
         else{
             return peliculasArrayList;
         }
-    }
+    }**/
      /**
     public ArrayList buscarPrestamoPorPelicula (HashMap<Integer, Prestamo> mapaPrestamo, Pelicula oPelicula){
         
